@@ -15,7 +15,29 @@ const show = async (request, response) => {
 const create = async (request, response) => {
   const { name, price } = request.body
 
-  const product = Product.build({ name, price })
+  if (!name) {
+    response
+      .status(422)
+      .json({
+        errors:
+        {
+          name: 'field is required'
+        }
+      })
+  }
+
+  if (!price) {
+    response
+      .status(422)
+      .json({
+        errors:
+        {
+          price: 'field is required'
+        }
+      })
+  }
+
+  const product = Product.build({ name, price: +price })
 
   await product.save()
 
