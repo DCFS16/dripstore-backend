@@ -1,6 +1,7 @@
 const express = require('express')
-const { list, create, remove, show } = require('../controllers/api/products.controllers')
+const { list, create, remove, show, createValidators } = require('../controllers/api/products.controllers')
 const router = express.Router()
+
 
 router.get('/', function (req, res, next) {
   res.send('wellcome to the API')
