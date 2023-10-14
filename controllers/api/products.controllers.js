@@ -1,3 +1,4 @@
+const { request, response } = require('express')
 const { Product } = require('../../models/Product')
 
 const list = async (request, response) => {
@@ -56,10 +57,20 @@ const remove = async (request, response) => {
   response.json({ product })
 }
 
+const update = async (request, response) => {
+  const { id } = request.body
+  const product = await Product.findByPk(id)
+  await product.update()
+  await product.save()
+  response.status(200)
+  response.json({ product })
+}
+
 
 module.exports = {
   list,
   show,
   create,
   remove,
+  update
 }

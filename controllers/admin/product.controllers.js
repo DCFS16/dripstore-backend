@@ -10,8 +10,21 @@ const form = (request, response, next) => {
   response.render('products/form')
 }
 
+const edit = async (request, response, next) => {
+  const item = await Product.findByPk(request.params.id)
+  response.render('products/edit', { item })
+  return item
+}
+
+const editItem = async (request, response, next) => {
+  const updateItem = await Product.update()
+  response.render('products/edit',{updateItem})
+}
+
 
 module.exports = {
   list,
-  form
+  form,
+  edit,
+  editItem
 }
