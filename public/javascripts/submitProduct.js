@@ -1,3 +1,8 @@
+const form = document.querySelector('#form')
+const productName = document.querySelector('#name')
+const productPrice = document.querySelector('#price')
+const result = document.querySelector('#result')
+
 const submitProduct = (data) => {
   const options = {
     method: 'POST',
@@ -6,17 +11,20 @@ const submitProduct = (data) => {
   }
 
   fetch('http://localhost:3000/api/products', options)
-    .then(() => alert('Produto cadastrado'))
+    .then(() => {
+      form.reset();
+      result.innerHTML = 'Cadastro realizado.'
+    })
     .catch(err => console.error(err));
 }
 
 
-const form = document.querySelector('#form')
+
 form.addEventListener('submit', (event) => {
   event.preventDefault()
 
   submitProduct({
-    name: 'Mouse',
-    price: 12,
+    name: productName.value,
+    price: productPrice.value,
   })
 })
