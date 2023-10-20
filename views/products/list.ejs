@@ -6,5 +6,12 @@
     </li>
     <% } %>
 </ul>
+  <div id="pagination">
+    <% for (let i=0; i < lastpage; i++){ %>
+      <a class="page" href="/admin/products?page=<%= i+1 %>"><%= i + 1 %></a>
+    <% } %><br/>
+  </div>
+<a class="register" href="/admin/products/new">Cadastrar novo produto</a>
 
-<a href="/admin/products/new">Cadastrar novo produto</a>
+<script src="/javascripts/submitProduct.js"></script>
+<link rel="stylesheet" href="/stylesheets/listProduct.css">

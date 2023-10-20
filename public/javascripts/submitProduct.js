@@ -18,13 +18,10 @@ const submitProduct = (data) => {
     .catch(err => console.error(err));
 }
 
-
-
 form.addEventListener('submit', (event) => {
   event.preventDefault()
-
-  submitProduct({
-    name: productName.value,
-    price: productPrice.value,
-  })
+  const formData = new FormData(event.target)
+  const data = Object.fromEntries(formData)
+  console.log(data)
+  submitProduct(data)
 })
