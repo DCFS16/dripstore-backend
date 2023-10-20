@@ -1,22 +1,37 @@
 const submitProduct = (data) => {
   const options = {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-  }
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  };
 
-  fetch('http://localhost:3000/api/products', options)
-    .then(() => alert('Produto cadastrado'))
-    .catch(err => console.error(err));
-}
+  fetch("http://localhost:3000/api/products", options)
+    .then(() => alert("Produto cadastrado"))
+    .catch((err) => console.error(err));
+};
 
+// const form = document.querySelector("#form");
+// form.addEventListener("submit", (event) => {
+//   event.preventDefault();
 
-const form = document.querySelector('#form')
-form.addEventListener('submit', (event) => {
-  event.preventDefault()
+//   submitProduct({
+//     name: "Mouse",
+//     price: 3.12,
+//   });
+// });
+
+const form = document.querySelector("#form");
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const nameInput = document.getElementById("name");
+  const priceInput = document.getElementById("price");
+
+  const name = nameInput.value;
+  const price = parseFloat(priceInput.value.replace(",", "."));
 
   submitProduct({
-    name: 'Mouse',
-    price: 12,
-  })
-})
+    name,
+    price,
+  });
+});
