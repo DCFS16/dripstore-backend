@@ -1,0 +1,87 @@
+body{
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+.container-main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  width: 30rem;
+  height: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+}
+
+form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-flex-inputs {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #333;
+}
+.container-flex-inputs > label {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #333;
+}
+.container-flex-inputs > input {
+  width: 100%;
+  height: 3rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  background-color: gainsboro;
+  border-radius: 0.25rem;
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+}
+
+main > div > h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+
+form > div > input {
+  padding: 0.5rem 1rem;
+}
+
+form#form > #submit-button {
+  width: 30%;
+  height: 3rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  background-color: #333;
+  border-radius: 0.25rem;
+  margin-top: 0.5rem;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+}

@@ -1,10 +1,28 @@
-<h1>Novo Item</h1>
-<form id="form">
-  <label for="name">Nome</label>
-  <input id="name" type="text">
-  <label for="price">Preço</label>
-  <input id="price" type="text">
-  <button>Salvar</button>
-</form>
 
+
+<main class="container">
+  <a href="/admin/products">Voltar</a>
+
+  <div class="form-container">
+
+    <h1>Novo Item</h1>
+
+    <form id="form">
+      <div class="container-flex-inputs">
+        <label for="name">Nome</label>
+        <input id="name" type="text" />
+      </div>
+      <div class="container-flex-inputs">
+        <label for="price">Preço</label>
+        <input id="price" type="text" />
+      </div>
+      <button id="submit-button" type="submit">Salvar</button>
+    </form>
+
+  </div>
+
+</main>
+
+
+<link rel="stylesheet" href="/stylesheets/form.css" />
 <script src="/javascripts/submitProduct.js"></script>
