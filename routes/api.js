@@ -1,7 +1,7 @@
 const express = require('express')
 const { list, create, remove, show } = require('../controllers/api/products.controllers')
 const { checkSchema } = require('express-validator')
-const productSchemaValidator = require('../validators/productSchemaValidator')
+const productSchemaValidator = require('../schemas/products')
 const router = express.Router()
 
 router.get('/', function (req, res, next) {

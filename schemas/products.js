@@ -1,4 +1,3 @@
-const express = require("express");
 require("express-validator");
 
 const productSchemaValidator = {
@@ -34,6 +33,6 @@ const productSchemaValidator = {
       },
     },
   },
-};
+}
 
-module.exports = productSchemaValidator;
+module.exports = productSchemaValidator
