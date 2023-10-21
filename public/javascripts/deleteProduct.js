@@ -7,6 +7,7 @@ const deleteProduct = (id) => {
 
   const hasConfirmed = confirm('Deseja deletar o produto?')
 
+
   if (hasConfirmed) {
     fetch('http://localhost:3000/api/products', options)
       .then(() => {
@@ -16,6 +17,7 @@ const deleteProduct = (id) => {
   }
 
 }
+const sucesso = alert(("Produto deletado com sucesso!"));
 
 const buttonsDelete = document.querySelectorAll('.buttonDelete')
 buttonsDelete.forEach((button) => {
