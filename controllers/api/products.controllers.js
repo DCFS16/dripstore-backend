@@ -5,13 +5,13 @@ const list = async (request, response) => {
   const products = await Product.findAll()
 
   response.json({ products })
-};
+}
 
 const show = async (request, response) => {
   const product = await Product.findByPk(request.params.id)
 
   response.json(product)
-};
+}
 
 const create = async (request, response) => {
   const errors = validationResult(request);
@@ -24,7 +24,7 @@ const create = async (request, response) => {
     });
   }
 
-  const { name, price } = request.body;
+  const { name, price } = request.body
 
   const product = Product.build({ name, price: +price });
 
@@ -35,7 +35,7 @@ const create = async (request, response) => {
 };
 
 const remove = async (request, response) => {
-  const { id } = request.body;
+  const { id } = request.body
 
   const product = await Product.findByPk(id);
   await product.destroy();
