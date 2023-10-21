@@ -1,10 +1,20 @@
 <h1>Produtos</h1>
 <ul>
-  <% for (let i = 0; i < products.length;  i++) { %>
+  <% for (let i=0; i < products.length; i++) { %>
     <li>
       <%= products[i].name %>
     </li>
-  <% } %>
+    <% } %>
 </ul>
+<div id="pagination">
+  <% for (let i=0; i < lastpage; i++){ %>
+    <a class="page <%=  +page === i + 1  ? 'active' : '' %>" href="/admin/products?page=<%= i+1 %>">
+      <%= i + 1 %>
+    </a>
+    <%} %><br />
+</div>
 
-<a href="/admin/products/new">Cadastrar novo produto</a>
+<a class="register" href="/admin/products/new">Cadastrar novo produto</a>
+
+<script src="/javascripts/selected.js"></script>
+<link rel="stylesheet" href="/stylesheets/listProduct.css">
