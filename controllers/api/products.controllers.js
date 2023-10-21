@@ -1,21 +1,21 @@
-const { Product } = require("../../models/Product");
-const { validationResult } = require("express-validator");
+const { Product } = require('../../models/Product')
+const { validationResult } = require('express-validator')
 
 const list = async (request, response) => {
-  const products = await Product.findAll();
+  const products = await Product.findAll()
 
-  response.json({ products });
+  response.json({ products })
 };
 
 const show = async (request, response) => {
-  const product = await Product.findByPk(request.params.id);
+  const product = await Product.findByPk(request.params.id)
 
-  response.json(product);
+  response.json(product)
 };
 
 const create = async (request, response) => {
   const errors = validationResult(request);
-  console.log("errors", errors);
+  console.log('errors', errors);
 
   if (!errors.isEmpty()) {
     return response.status(400).json({
@@ -49,4 +49,4 @@ module.exports = {
   show,
   create,
   remove,
-};
+}
