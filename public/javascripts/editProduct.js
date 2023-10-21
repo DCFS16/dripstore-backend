@@ -6,7 +6,14 @@ const editProduct = (data) => {
   }
 
   fetch('http://localhost:3000/api/products/' + data.id + '/edit', options)
-    .then(() => alert('Produto editado'))
+    .then((data) => {
+      if(data.status === 200){
+         alert('Produto editado')
+      }else{
+        alert('Produto ou preço é inválido')
+      }
+
+    })
     .catch(err => console.error(err));
 }
 const form = document.querySelector('#formEdit')
