@@ -9,6 +9,5 @@ router.get('/', function (req, res, next) {
 router.get('/products', list)
 router.get('/products/new', form)
 router.get('/products/:id/edit', edit)
-router.put('/products/:id', editItem)
 
 module.exports = router

@@ -56,18 +56,28 @@ const update = async (request, response) => {
   const { name, price } = request.body
   const { id } = request.params
 
-  const product = await Product.findByPk(id)
-  product.update({ name, price })
-  await product.save()
-  if (product) {
-    response.status(200)
-    response.json(product)
-  } else {
-    response.status(404)
-    response.json({
-      message: 'product not found'
-    })
+  if(price>0){
+    const product = await Product.findByPk(id)
+    product.update({ name, price: +price })
+    await product.save()
+    if (product) {
+      response.status(200)
+      response.json(product)
+    } else {
+      response.status(404)
+      response.json({
+        message: 'product not found'
+      })
+    }
+  }else{
+    response.status(400)
+    response.json(
+      {
+        message:'price invalid'
+      }
+    )
   }
+
 
 }
 
