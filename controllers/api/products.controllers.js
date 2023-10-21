@@ -14,8 +14,8 @@ const show = async (request, response) => {
 }
 
 const create = async (request, response) => {
-  const errors = validationResult(request);
-  console.log('errors', errors);
+  const errors = validationResult(request)
+  console.log('errors', errors)
 
   if (!errors.isEmpty()) {
     return response.status(400).json({
