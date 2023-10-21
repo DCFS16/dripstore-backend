@@ -6,7 +6,7 @@ const submitProduct = (data) => {
   }
 
   fetch('http://localhost:3000/api/products', options)
-    .then(() => alert('Produto cadastrado'))
+    // .then(() => alert('Produto cadastrado'))
     .catch(err => console.error(err));
 }
 
