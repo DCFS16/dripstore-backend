@@ -1,4 +1,5 @@
 const { Product } = require('../../models/Product')
+const { validationResult } = require('express-validator')
 
 const list = async (request, response) => {
   const products = await Product.findAll()
@@ -13,49 +14,34 @@ const show = async (request, response) => {
 }
 
 const create = async (request, response) => {
+  const errors = validationResult(request)
+
+  if (!errors.isEmpty()) {
+    return response.status(400).json({
+      success: false,
+      errors: errors.array(),
+    });
+  }
+
   const { name, price } = request.body
 
-  if (!name) {
-    response
-      .status(422)
-      .json({
-        errors:
-        {
-          name: 'field is required'
-        }
-      })
-  }
+  const product = Product.build({ name, price: +price });
 
-  if (!price) {
-    response
-      .status(422)
-      .json({
-        errors:
-        {
-          price: 'field is required'
-        }
-      })
-  }
+  await product.save();
 
-  const product = Product.build({ name, price: +price })
-
-  await product.save()
-
-  response.status(201)
-  response.json({ product })
-}
-
+  response.status(201);
+  response.json({ product });
+};
 
 const remove = async (request, response) => {
   const { id } = request.body
 
-  const product = await Product.findByPk(id)
-  await product.destroy()
+  const product = await Product.findByPk(id);
+  await product.destroy();
 
-  response.status(200)
-  response.json({ product })
-}
-
+  response.status(200);
+  response.json({ product });
+};
 
 module.exports = {
   list,

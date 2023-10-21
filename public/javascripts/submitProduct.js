@@ -10,13 +10,18 @@ const submitProduct = (data) => {
     .catch(err => console.error(err));
 }
 
-
 const form = document.querySelector('#form')
 form.addEventListener('submit', (event) => {
   event.preventDefault()
 
+  const nameInput = document.getElementById("name")
+  const priceInput = document.getElementById("price")
+
+  const name = nameInput.value;
+  const price = parseFloat(priceInput.value.replace(",", "."))
+
   submitProduct({
-    name: 'Mouse',
-    price: 12,
-  })
+    name,
+    price,
+  });
 })
