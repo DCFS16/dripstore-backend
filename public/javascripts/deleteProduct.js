@@ -11,13 +11,14 @@ const deleteProduct = (id) => {
   if (hasConfirmed) {
     fetch('http://localhost:3000/api/products', options)
       .then(() => {
+        alert("Produto deletado com sucesso!");
         window.location.reload()
       })
-      .catch(err => console.error(err));
+      .catch(err => alert("Erro, tente novamente!"));
   }
 
 }
-const sucesso = alert(("Produto deletado com sucesso!"));
+
 
 const buttonsDelete = document.querySelectorAll('.buttonDelete')
 buttonsDelete.forEach((button) => {
