@@ -1,11 +1,11 @@
-
 const editProduct = (data) => {
   const options = {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
   }
 
-  fetch('http://localhost:3000/api/products/'+data.id+'/edit', options)
+  fetch('http://localhost:3000/api/products/' + data.id + '/edit', options)
     .then(() => alert('Produto editado'))
     .catch(err => console.error(err));
 }

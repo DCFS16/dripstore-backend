@@ -3,19 +3,16 @@ const { Product } = require('../../models/Product')
 
 const list = async (request, response) => {
   const products = await Product.findAll()
-
   response.json({ products })
 }
 
 const show = async (request, response) => {
   const product = await Product.findByPk(request.params.id)
-
   response.json(product)
 }
 
 const create = async (request, response) => {
   const { name, price } = request.body
-
   if (!name) {
     response
       .status(422)
@@ -39,9 +36,7 @@ const create = async (request, response) => {
   }
 
   const product = Product.build({ name, price: +price })
-
   await product.save()
-
   response.status(201)
   response.json({ product })
 }
@@ -58,12 +53,22 @@ const remove = async (request, response) => {
 }
 
 const update = async (request, response) => {
-  const { id } = request.body
+  const { name, price } = request.body
+  const { id } = request.params
+
   const product = await Product.findByPk(id)
-  await product.update()
+  product.update({ name, price })
   await product.save()
-  response.status(200)
-  response.json({ product })
+  if (product) {
+    response.status(200)
+    response.json(product)
+  } else {
+    response.status(404)
+    response.json({
+      message: 'product not found'
+    })
+  }
+
 }
 
 

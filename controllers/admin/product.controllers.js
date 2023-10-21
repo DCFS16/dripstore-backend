@@ -18,6 +18,7 @@ const edit = async (request, response, next) => {
 
 const editItem = async (request, response, next) => {
   const updateItem = await Product.update()
+  await updateItem.save()
   response.render('products/edit',{updateItem})
 }
 
