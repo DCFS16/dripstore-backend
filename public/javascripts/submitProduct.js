@@ -21,7 +21,10 @@ const submitProduct = (data) => {
 form.addEventListener('submit', (event) => {
   event.preventDefault()
   const formData = new FormData(event.target)
-  const data = Object.fromEntries(formData)
-  console.log(data)
-  submitProduct(data)
+  const { name, price } = Object.fromEntries(formData)
+  
+  submitProduct({
+     name,
+     price: parseFloat(priceInput.value.replace(",", "."))
+  })
 })
