@@ -20,6 +20,16 @@ Após executar o comando acima preencha as informações o arquivo `.env` com su
 npm i
 ```
 
+### Criar banco de dados
+```
+npm run db:create
+```
+
+### Rodar as Migrate
+```
+npm run db:migrate
+```
+
 ### Inicie o servidor
 ```
 npm start
