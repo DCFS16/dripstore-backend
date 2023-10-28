@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../config/sequilize");
+const { Category } = require('./category');
 
 const Product = sequelize.define('Product', {
   name: {
@@ -16,3 +17,6 @@ const Product = sequelize.define('Product', {
 module.exports = {
   Product,
 }
+
+Product.belongsToMany(Category, { through: 'product_category' })
+Category.belongsToMany(Product, { through: 'product_category' })

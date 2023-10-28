@@ -6,7 +6,7 @@ create table Products (
     price decimal(10,2)
 );
 
-create table Categories (
+create table categories (
     id mediumint primary key auto_increment,
     name varchar(50)
 );

@@ -9,7 +9,7 @@ const submitCategory = (data) => {
     body: JSON.stringify(data)
   }
 
-  fetch('http://localhost:3000/api/products', options)
+  fetch('http://localhost:3000/api/categories', options)
     .then(() => {
       form.reset();
       result.innerHTML = 'Cadastro realizado.'
