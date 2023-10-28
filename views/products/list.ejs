@@ -1,22 +1,37 @@
-<h1>Produtos</h1>
-<form>
-  <input type="search" value="<%= search %>" name="search" placeholder="Buscar produto...">
-</form>
+<div class="container-product-list">
+  <%- include('../_partials/aside') %>
+  <div class="main-container-products">
+    <div>
+      <%- include('../_partials/header') %>
+    </div>
+    <main>
+      <h1>Produtos</h1>
+      <form>
+        <input
+          type="search"
+          value="<%= search %>"
+          name="search"
+          placeholder="Buscar produto..."
+        />
+      </form>
 
-<% if (products.length === 0) { %>
-  <p>Não tem mais produto</p>
-<% } %>
-<ul>
-  <% for (let i = 0; i < products.length;  i++) { %>
-    <li>
-      <%= products[i].name %>
-    </li>
-  <% } %>
-</ul>
+      <% if (products.length === 0) { %>
+      <p>Não tem mais produto</p>
+      <% } %>
+      <ul>
+        <% for (let i = 0; i < products.length; i++) { %>
+        <li><%= products[i].name %></li>
+        <% } %>
+      </ul>
 
-<a href="?page=<%= +page - 1 %>&search=<%= search %>">Página Anterior</a>
-<a href="?page=<%= +page + 1 %>&search=<%= search %>">Proxima página</a>
+      <a href="?page=<%= +page - 1 %>&search=<%= search %>">Página Anterior</a>
+      <a href="?page=<%= +page + 1 %>&search=<%= search %>">Proxima página</a>
 
-<div>
-  <a href="/admin/products/new">Cadastrar novo produto</a>
+      <div>
+        <a href="/admin/products/new">Cadastrar novo produto</a>
+      </div>
+    </main>
+  </div>
 </div>
+
+<link rel="stylesheet" href="/stylesheets/productList.css" />
