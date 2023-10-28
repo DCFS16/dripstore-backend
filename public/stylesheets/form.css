@@ -1,42 +1,52 @@
-body{
+body {
   padding: 0;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
-
 .container-main {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 13.75rem 1fr;
+  grid-template-rows: 100vh;
+}
+
+.main-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 3.75rem 1fr;
 }
 
 .form-container {
-  width: 30rem;
-  height: 30rem;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+  align-items: start;
   border-radius: 0.25rem;
   padding: 0.5rem;
 }
 
-form{
-  width: 100%;
+form {
+  width: 35.87rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
+  border-radius: 0.25rem;
+  padding: 0.5rem ;
+}
+
+.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 
 .container-flex-inputs {
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 0.5rem 1rem;
+
   border-radius: 0.25rem;
   outline: none;
   font-size: 1rem;
@@ -59,19 +69,30 @@ form{
   margin-top: 0.5rem;
   font-size: 1.1rem;
 }
+span#error-price{
+  color: red;
+  font-size: 1.1rem;
+  font-weight: 400;
 
-main > div > h1 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #333;
 }
 
+.invisible {
+  display: none;
+}
+
+
+div.form-container > form > h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
 
 form > div > input {
   padding: 0.5rem 1rem;
 }
 
-form#form > #submit-button {
+button#submit-button {
   width: 30%;
   height: 3rem;
   padding: 0.5rem 1rem;
@@ -84,4 +105,5 @@ form#form > #submit-button {
   font-size: 1rem;
   font-weight: 400;
   cursor: pointer;
+  margin-top: 1rem;
 }
