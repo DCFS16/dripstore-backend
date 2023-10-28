@@ -1,22 +1,23 @@
 const express = require('express')
-const { list, create, remove, show } = require('../controllers/api/products.controllers')
+const productsController = require('../controllers/api/products.controllers')
 const categoriesController = require('../controllers/api/categories.controllers')
 const { checkSchema } = require('express-validator')
 const productSchemaValidator = require('../schemas/products')
+const categorySchemaValidtor = require('../schemas/categories')
 const router = express.Router()
 
 router.get('/', function (req, res, next) {
   res.send('wellcome to the API')
 });
 
-router.get('/products', list)
-router.get('/products/:id', show)
-router.post('/products', checkSchema(productSchemaValidator), create)
-router.delete('/products', remove)
+router.get('/products', productsController.list)
+router.get('/products/:id', productsController.show)
+router.post('/products', checkSchema(productSchemaValidator), productsController.create)
+router.delete('/products', productsController.remove)
 
 router.get('/categories', categoriesController.list)
 router.get('/categories/:id', categoriesController.show)
-router.post('/categories', categoriesController.create)
+router.post('/categories', checkSchema(categorySchemaValidtor), categoriesController.create)
 router.delete('/categories', categoriesController.remove)
 
 module.exports = router

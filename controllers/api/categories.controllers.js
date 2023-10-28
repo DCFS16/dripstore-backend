@@ -8,9 +8,14 @@ const list = async (request, response) => {
 }
 
 const show = async (request, response) => {
-  const categories = await Category.findByPk(request.params.id)
+  const category = await Category.findByPk(request.params.id)
 
-  response.json(categories)
+  const products = [] //category.products()
+
+  response.json({
+    ...category.toJSON(),
+    products,
+  })
 }
 
 const create = async (request, response) => {
