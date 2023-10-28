@@ -3,6 +3,7 @@
   <% for (let i=0; i < products.length; i++) { %>
     <li>
       <%= products[i].name %>
+      <button id="<%= products[i].id %>" class="buttonDelete" >Deletar</button>
     </li>
     <% } %>
 </ul>
@@ -16,5 +17,6 @@
 
 <a class="register" href="/admin/products/new">Cadastrar novo produto</a>
 
+<script src="/javascripts/deleteProduct.js"></script>
 <script src="/javascripts/selected.js"></script>
 <link rel="stylesheet" href="/stylesheets/listProduct.css">
