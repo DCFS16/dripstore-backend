@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#save {
+  margin-top: 10px;
+}
+
+#result {
+  color: blue;
+}

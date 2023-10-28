@@ -1,10 +1,15 @@
-<h1>Novo Item</h1>
-<form id="form">
-  <label for="name">Nome</label>
-  <input id="name" type="text">
-  <label for="price">Preço</label>
-  <input id="price" type="text">
-  <button>Salvar</button>
-</form>
+<div class="container">
+  <h1 id="formTitulo">Cadastro de Item</h1>
+  <form id="form">
+    <label for="name">Nome</label>
+    <input name="name" id="name" type="text">
+    <label for="price">Preço</label>
+    <input name="price" id="price" type="text">
+    <span id="result"></span>
+    <button id="save">Salvar</button>
+  </form>
+  <a href="/admin/products/">Lista de produtos</a>
+</div>
 
 <script src="/javascripts/submitProduct.js"></script>
+<link rel="stylesheet" href="/stylesheets/productForm.css">
