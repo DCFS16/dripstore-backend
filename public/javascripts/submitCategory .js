@@ -1,9 +1,8 @@
 const form = document.querySelector('#form')
-const productName = document.querySelector('#name')
-const productPrice = document.querySelector('#price')
+const CategoryName = document.querySelector('#name')
 const result = document.querySelector('#result')
 
-const submitProduct = (data) => {
+const submitCategory = (data) => {
   const options = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -21,10 +20,9 @@ const submitProduct = (data) => {
 form.addEventListener('submit', (event) => {
   event.preventDefault()
   const formData = new FormData(event.target)
-  const { name, price } = Object.fromEntries(formData)
+  const { name } = Object.fromEntries(formData)
 
-  submitProduct({
-    name,
-    price: parseFloat(price.replace(",", "."))
+  submitCategory({
+    name
   })
 })

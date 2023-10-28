@@ -9,4 +9,7 @@ router.get('/', function (req, res, next) {
 router.get('/products', list)
 router.get('/products/new', form)
 
+/*router.get('/categories', list)
+router.get('/categories/new', form)*/
+
 module.exports = router
