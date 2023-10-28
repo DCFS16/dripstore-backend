@@ -1,10 +1,22 @@
 <aside class="main-aside">
   <ul class="main-menu">
     <li>
-      <a href="#">
+      <a href="/admin/products/" id="product">
         Produtos
-        <img src="/images/arrow-down.svg" width="20" />
+        <img
+        src="/images/arrow-down.svg"
+        class=""
+        id="dropdown-arrow"
+        width="20" />
       </a>
+      <ul class="sub-menu-visible" id="sub-list">
+        <li>
+          <a href="/admin/products/">Listar</a>
+        </li>
+        <li>
+          <a href="/admin/products/new">Cadastrar</a>
+        </li>
+      </ul>
     </li>
     <li>
       <a href="#">Usuários</a>
@@ -17,3 +29,5 @@
     </li>
   </ul>
 </aside>
+
+<script src="/javascripts/productList.js"></script>
