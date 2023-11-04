@@ -1,7 +1,3 @@
-'use strict';
-
-const { productModelAttributes } = require('../models/Product');
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -10,20 +6,20 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true,
-        autoIncrement: true
+        autoIncrement: true,
       },
-      name :{
+      name: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       price: {
         type: Sequelize.DECIMAL(8, 2),
-        allowNull: false
-      }
-    });
+        allowNull: false,
+      },
+    })
   },
 
-  async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('products');
-  }
-};
+  async down(queryInterface) {
+    await queryInterface.dropTable('products')
+  },
+}
