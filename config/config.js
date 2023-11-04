@@ -1,4 +1,5 @@
 const dotenv = require('dotenv')
+
 dotenv.config()
 
 const {
@@ -7,36 +8,35 @@ const {
   DATABASE_PASSWORD,
   DATABASE_PORT,
   DATABASE_HOST,
-  DATABASE_DIALECT
+  DATABASE_DIALECT,
 } = process.env
 
-module.exports =
-{
-  "development": {
-    "username": DATABASE_USER,
-    "password": DATABASE_PASSWORD,
-    "database": DATABASE_NAME,
-    "host": DATABASE_HOST,
-    "port": DATABASE_PORT,
-    "dialect": "mysql",
-    "Logging": true
+module.exports = {
+  development: {
+    username: DATABASE_USER,
+    password: DATABASE_PASSWORD,
+    database: DATABASE_NAME,
+    host: DATABASE_HOST,
+    port: DATABASE_PORT,
+    dialect: 'mysql',
+    Logging: true,
   },
-  "test": {
-    "username": DATABASE_USER,
-    "password": DATABASE_PASSWORD,
-    "database": DATABASE_NAME,
-    "host": DATABASE_HOST,
-    "port": DATABASE_PORT,
-    "dialect": DATABASE_DIALECT,
-    "Logging": true
+  test: {
+    username: DATABASE_USER,
+    password: DATABASE_PASSWORD,
+    database: DATABASE_NAME,
+    host: DATABASE_HOST,
+    port: DATABASE_PORT,
+    dialect: DATABASE_DIALECT,
+    Logging: true,
   },
-  "production": {
-    "username": DATABASE_USER,
-    "password": DATABASE_PASSWORD,
-    "database": DATABASE_NAME,
-    "host": DATABASE_HOST,
-    "port": DATABASE_PORT,
-    "dialect": DATABASE_DIALECT,
-    "Logging": false
-  }
+  production: {
+    username: DATABASE_USER,
+    password: DATABASE_PASSWORD,
+    database: DATABASE_NAME,
+    host: DATABASE_HOST,
+    port: DATABASE_PORT,
+    dialect: DATABASE_DIALECT,
+    Logging: false,
+  },
 }
