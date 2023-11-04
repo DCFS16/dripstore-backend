@@ -1,5 +1,5 @@
-const { Category } = require('../../models/Category')
 const { validationResult } = require('express-validator')
+const { Category } = require('../../models/Category')
 const { Product } = require('../../models/Product')
 
 const list = async (request, response) => {
@@ -26,28 +26,28 @@ const create = async (request, response) => {
     return response.status(400).json({
       success: false,
       errors: errors.array(),
-    });
+    })
   }
 
   const { name } = request.body
 
-  const categories = Category.build({ name });
+  const categories = Category.build({ name })
 
-  await categories.save();
+  await categories.save()
 
-  response.status(201);
-  response.json({ categories });
-};
+  response.status(201)
+  response.json({ categories })
+}
 
 const remove = async (request, response) => {
   const { id } = request.body
 
-  const categories = await Category.findByPk(id);
-  await categories.destroy();
+  const categories = await Category.findByPk(id)
+  await categories.destroy()
 
-  response.status(200);
-  response.json({ categories });
-};
+  response.status(200)
+  response.json({ categories })
+}
 
 module.exports = {
   list,

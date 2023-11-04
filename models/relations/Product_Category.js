@@ -1,26 +1,26 @@
-const { DataTypes } = require("sequelize");
-const { sequelize } = require("../../config/sequilize");
+const { DataTypes } = require('sequelize')
+const { sequelize } = require('../../config/sequilize')
 
 const Product_Category = sequelize.define('Product_Category', {
   products_id: {
     type: DataTypes.INTEGER,
     references: {
       model: 'products',
-      key: 'id'
-    }
+      key: 'id',
+    },
   },
 
   categories_id: {
     type: DataTypes.INTEGER,
     references: {
       model: 'categories',
-      key: 'id'
-    }
-  }
+      key: 'id',
+    },
+  },
 }, {
-  timestamps: false
+  timestamps: false,
 }, {
-  tableName: 'product_categories'
+  tableName: 'product_categories',
 })
 
-module.exports = { Product_Category, }
+module.exports = { Product_Category }

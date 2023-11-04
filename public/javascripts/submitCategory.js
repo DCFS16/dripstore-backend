@@ -6,15 +6,15 @@ const submitCategory = (data) => {
   const options = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
   }
 
   fetch('http://localhost:3000/api/categories', options)
     .then(() => {
-      form.reset();
+      form.reset()
       result.innerHTML = 'Cadastro realizado.'
     })
-    .catch(err => console.error(err));
+    .catch((err) => console.error(err))
 }
 
 form.addEventListener('submit', (event) => {
@@ -23,6 +23,6 @@ form.addEventListener('submit', (event) => {
   const { name } = Object.fromEntries(formData)
 
   submitCategory({
-    name
+    name,
   })
 })

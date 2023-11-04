@@ -1,6 +1,4 @@
-'use strict';
-
-const { DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize')
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -10,14 +8,14 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       name: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
       },
     }, {
-      timestamps: false
+      timestamps: false,
     })
 
     await queryInterface.createTable('products_categories', {
@@ -25,25 +23,24 @@ module.exports = {
         type: DataTypes.INTEGER,
         references: {
           model: 'products',
-          key: 'id'
-        }
+          key: 'id',
+        },
       },
 
       categories_id: {
         type: DataTypes.INTEGER,
         references: {
           model: 'categories',
-          key: 'id'
-        }
-      }
+          key: 'id',
+        },
+      },
     }, {
-      timestamps: false
+      timestamps: false,
     })
-
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('product_category');
-    await queryInterface.dropTable('category');
-  }
-};
+    await queryInterface.dropTable('product_category')
+    await queryInterface.dropTable('category')
+  },
+}

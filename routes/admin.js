@@ -1,6 +1,7 @@
 const express = require('express')
 const productController = require('../controllers/admin/product.controllers')
 const categoryController = require('../controllers/admin/category.controllers')
+
 const router = express.Router()
 
 router.get('/', (req, res) => {

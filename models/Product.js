@@ -1,15 +1,14 @@
 const { DataTypes, Sequelize } = require('sequelize')
 const { sequelize } = require('../config/sequilize')
-const { Category } = require('../models/Category')
-const { Product_Category } = require('../models/relations/Product_Category')
-
+const { Category } = require('./Category')
+const { Product_Category } = require('./relations/Product_Category')
 
 const Product = sequelize.define('Product', {
   id: {
     allowNull: false,
     autoIncrement: true,
     primaryKey: true,
-    type: DataTypes.INTEGER
+    type: DataTypes.INTEGER,
   },
   name: {
     type: DataTypes.STRING,
@@ -25,20 +24,19 @@ const Product = sequelize.define('Product', {
 
 Product.belongsToMany(Category, {
   through: {
-    model: Product_Category
+    model: Product_Category,
   },
   foreignKey: 'products_id',
-  constraints: true
-});
+  constraints: true,
+})
 
 Category.belongsToMany(Product, {
   through: {
-    model: Product_Category
+    model: Product_Category,
   },
   foreignKey: 'categories_id',
-  constraints: true
-});
-
+  constraints: true,
+})
 
 module.exports = {
   Product,
