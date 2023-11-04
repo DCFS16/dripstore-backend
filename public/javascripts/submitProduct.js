@@ -7,7 +7,7 @@ const submitProduct = (data) => {
   const options = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
   }
 
   fetch('http://localhost:3000/api/products', options)
@@ -15,16 +15,16 @@ const submitProduct = (data) => {
       form.reset();
       result.innerHTML = 'Cadastro realizado.'
     })
-    .catch(err => console.error(err));
-}
+    .catch((err) => console.error(err));
+};
 
 form.addEventListener('submit', (event) => {
   event.preventDefault()
   const formData = new FormData(event.target)
   const { name, price } = Object.fromEntries(formData)
-  
+
   submitProduct({
-     name,
-     price: parseFloat(priceInput.value.replace(",", "."))
+    name,
+    price: parseFloat(price.replace(',', '.'))
   })
 })
