@@ -3,6 +3,7 @@ const { sequelize } = require("../config/sequilize");
 const { Category } = require('../models/Category');
 const { Product_Category } = require('../models/relations/Product_Category');
 
+
 const Product = sequelize.define('Product', {
   id: {
     allowNull: false,
@@ -15,8 +16,9 @@ const Product = sequelize.define('Product', {
     allowNull: false
   },
   price: {
-    type: DataTypes.DECIMAL(2)
-  }
+    type: DataTypes.DECIMAL(8, 2),
+    allowNull: false
+  },
 }, {
   timestamps: false
 }, {
