@@ -3,7 +3,7 @@ const productController = require('../controllers/admin/product.controllers')
 const categoryController = require('../controllers/admin/category.controllers')
 const router = express.Router()
 
-router.get('/', function (req, res, next) {
+router.get('/', (req, res) => {
   res.send('Wellcome to the DripStore ADMIN')
 })
 

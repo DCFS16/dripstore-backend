@@ -1,7 +1,7 @@
-const { DataTypes, Sequelize } = require("sequelize");
-const { sequelize } = require("../config/sequilize");
-const { Category } = require('../models/Category');
-const { Product_Category } = require('../models/relations/Product_Category');
+const { DataTypes, Sequelize } = require('sequelize')
+const { sequelize } = require('../config/sequilize')
+const { Category } = require('../models/Category')
+const { Product_Category } = require('../models/relations/Product_Category')
 
 
 const Product = sequelize.define('Product', {
@@ -13,15 +13,15 @@ const Product = sequelize.define('Product', {
   },
   name: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
   },
   price: {
     type: DataTypes.DECIMAL(8, 2),
-    allowNull: false
+    allowNull: false,
   },
 }, {
-  timestamps: false
-});
+  timestamps: false,
+})
 
 Product.belongsToMany(Category, {
   through: {
