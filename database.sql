@@ -11,7 +11,7 @@ create table categories (
     name varchar(50)
 );
 
-create table product_category (
+create table product_categories (
 	id mediumint auto_increment,
     products_id MEDIUMINT,
     categories_id MEDIUMINT,
@@ -20,7 +20,7 @@ create table product_category (
 	  foreign key (categories_id) references Categories(id)
     );
 
-create view ProductsAndCategories as
+/*create view ProductsAndCategories as
 select
     P.name as product_name,
     P.price as product_price,

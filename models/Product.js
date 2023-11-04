@@ -21,8 +21,6 @@ const Product = sequelize.define('Product', {
   },
 }, {
   timestamps: false
-}, {
-  tableName: 'products'
 });
 
 Product.belongsToMany(Category, {

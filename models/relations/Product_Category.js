@@ -1,13 +1,11 @@
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../../config/sequilize");
-const { Category } = require('../Category');
-const { Product } = require('../Product');
 
 const Product_Category = sequelize.define('Product_Category', {
   products_id: {
     type: DataTypes.INTEGER,
     references: {
-      model: Product,
+      model: 'products',
       key: 'id'
     }
   },
@@ -15,7 +13,7 @@ const Product_Category = sequelize.define('Product_Category', {
   categories_id: {
     type: DataTypes.INTEGER,
     references: {
-      model: Category,
+      model: 'categories',
       key: 'id'
     }
   }
