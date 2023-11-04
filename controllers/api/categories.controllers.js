@@ -1,5 +1,6 @@
 const { Category } = require('../../models/Category')
 const { validationResult } = require('express-validator')
+const { Product } = require('../../models/Product')
 
 const list = async (request, response) => {
   const categories = await Category.findAll()
@@ -8,13 +9,13 @@ const list = async (request, response) => {
 }
 
 const show = async (request, response) => {
-  const category = await Category.findByPk(request.params.id)
+  const category = await Category.findByPk(request.params.id, { include: Product })
 
-  const products = [] //category.products()
+  console.log(category)
 
   response.json({
     ...category.toJSON(),
-    products,
+    // products,
   })
 }
 
