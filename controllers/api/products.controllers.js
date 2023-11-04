@@ -23,23 +23,20 @@ const create = async (request, response) => {
     });
   }
 
-  const { name, price } = request.body
-
   const product = Product.build({ name, price: +price })
   await product.save()
   response.status(201)
   response.json({ product })
 }
 
-  response.status(201);
-  response.json({ product });
-};
-
 const remove = async (request, response) => {
   const { id } = request.body
-
   const product = await Product.findByPk(id);
   await product.destroy();
+  response.status(200)
+  response.json({ product })
+
+}
 
 const update = async (request, response) => {
   const { name, price } = request.body
@@ -51,7 +48,7 @@ const update = async (request, response) => {
     await product.save()
     if (product) {
       response.status(200)
-      response.json(product)
+      response.json({product})
     } else {
       response.status(404)
       response.json({
@@ -67,12 +64,8 @@ const update = async (request, response) => {
     )
   }
 
-
 }
 
-  response.status(200);
-  response.json({ product });
-};
 
 module.exports = {
   list,

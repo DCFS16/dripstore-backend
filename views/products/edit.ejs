@@ -1,11 +1,30 @@
-<h1>Editar Item</h1>
-<form id="formEdit">
-  <label for="name">Nome</label>
-  <input id="name" name="name" type="text" value="<%=product.name%>">
-  <label for="price">Preço</label>
-  <input id="price" name="price" type="text" value="<%=product.price%>">
-  <input type="hidden" name="id" value="<%= product.id %>">
-  <button>Editar</button>
-</form>
+<div class="container-main">
+  <%- include('../_partials/aside') %>
+    <div class="main-section">
+      <div class="header">
+        <%- include('../_partials/header') %>
+      </div>
+      <main class="form-container">
+        <form id="form" class="space-y-4">
+          <h1>Editar Item</h1>
+          <div class="container-flex-inputs">
+            <label for="name">Nome</label>
+            <input name="name" type="text" value="<%=product.name%>" />
+          </div>
 
+          <div class="container-flex-inputs">
+            <label for="price">Preço</label>
+            <input name="price" type="text" value="<%=product.price%>"/>
+            <span id="error-price" class="invisible">erro</span>
+          </div>
+          <input type="hidden" name="id" value="<%= product.id %>">
+          <div id="result"></div>
+          <button id="submit-button" type="submit">Editar</button>
+        </form>
+      </main>
+    </div>
+</div>
+
+<link rel="stylesheet" href="/stylesheets/form.css" />
+<link rel="stylesheet" href="/stylesheets/productForm.css">
 <script src="/javascripts/editProduct.js"></script>

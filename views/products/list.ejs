@@ -1,24 +1,49 @@
-<h1>Produtos</h1>
-<ul>
-  <% for (let i=0; i < products.length; i++) { %>
-    <li>
-      <%= products[i].name %>
-        <a href="/admin/products/<%= products[i].id%>/edit">editar</a>
-      <button id="<%= products[i].id %>" class="buttonDelete" >Deletar</button>
+<div class="container-product-list">
+  <%- include('../_partials/aside') %>
+  <div class="main-container-products">
+    <div>
+      <%- include('../_partials/header') %>
+    </div>
+    <main>
+      <h1>Produtos</h1>
+      <form>
+        <input
+          type="search"
+          value="<%= search %>"
+          name="search"
+          placeholder="Buscar produto..."
+        />
+      </form>
 
-    </li>
-    <% } %>
-</ul>
-<div id="pagination">
-  <% for (let i=0; i < lastpage; i++){ %>
-    <a class="page <%=  +page === i + 1  ? 'active' : '' %>" href="/admin/products?page=<%= i+1 %>">
-      <%= i + 1 %>
-    </a>
-    <%} %><br />
+      <% if (products.length === 0) { %>
+        <p>Nenhum produto cadastrado</p>
+      <% } %>
+
+      <ul>
+
+        <% for (let i = 0; i < products.length; i++) { %>
+          <li>
+            <%= products[i].name %>
+            <a href="/admin/products/<%= products[i].id%>/edit">editar</a>
+            <button id="<%= products[i].id %>" class="buttonDelete" >Deletar</button>
+          </li>
+        <% } %>
+      </ul>
+
+      <div id="pagination">
+        <% for (let i=0; i < lastpage; i++){ %>
+          <a class="page <%=  +page === i + 1  ? 'active' : '' %>" href="/admin/products?page=<%= i+1 %>">
+            <%= i + 1 %>
+          </a>
+          <%} %><br />
+      </div>
+
+      <div>
+        <a href="/admin/products/new">Cadastrar novo produto</a>
+      </div>
+    </main>
+  </div>
 </div>
 
-<a class="register" href="/admin/products/new">Cadastrar novo produto</a>
-
 <script src="/javascripts/deleteProduct.js"></script>
-<script src="/javascripts/selected.js"></script>
-<link rel="stylesheet" href="/stylesheets/listProduct.css">
+<link rel="stylesheet" href="/stylesheets/productList.css" />

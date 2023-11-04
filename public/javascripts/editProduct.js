@@ -1,3 +1,8 @@
+const form = document.querySelector('#form')
+const productName = document.querySelector('#name')
+const productPrice = document.querySelector('#price')
+const result = document.querySelector('#result')
+
 const editProduct = (data) => {
   const options = {
     method: 'PUT',
@@ -6,17 +11,13 @@ const editProduct = (data) => {
   }
 
   fetch('http://localhost:3000/api/products/' + data.id + '/edit', options)
-    .then((data) => {
-      if(data.status === 200){
-         alert('Produto editado')
-      }else{
-        alert('Produto ou preço é inválido')
-      }
+    .then(() => {
+      result.innerHTML = 'Produto editado.'
 
     })
     .catch(err => console.error(err));
 }
-const form = document.querySelector('#formEdit')
+
 form.addEventListener('submit', (event) => {
   event.preventDefault()
   const data = new FormData(event.target);

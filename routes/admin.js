@@ -1,5 +1,5 @@
 const express = require('express')
-const { list, form, edit, editItem } = require('../controllers/admin/product.controllers')
+const { list, form, edit} = require('../controllers/admin/product.controllers')
 const router = express.Router()
 
 router.get('/', function (req, res, next) {
