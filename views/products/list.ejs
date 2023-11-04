@@ -16,16 +16,22 @@
       </form>
 
       <% if (products.length === 0) { %>
-      <p>Não tem mais produto</p>
+        <p>Nenhum produto cadastrado</p>
       <% } %>
+
       <ul>
         <% for (let i = 0; i < products.length; i++) { %>
         <li><%= products[i].name %></li>
         <% } %>
       </ul>
 
-      <a href="?page=<%= +page - 1 %>&search=<%= search %>">Página Anterior</a>
-      <a href="?page=<%= +page + 1 %>&search=<%= search %>">Proxima página</a>
+      <div id="pagination">
+        <% for (let i=0; i < lastpage; i++){ %>
+          <a class="page <%=  +page === i + 1  ? 'active' : '' %>" href="/admin/products?page=<%= i+1 %>">
+            <%= i + 1 %>
+          </a>
+          <%} %><br />
+      </div>
 
       <div>
         <a href="/admin/products/new">Cadastrar novo produto</a>
