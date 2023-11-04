@@ -4,8 +4,21 @@
     <li>
       <%= products[i].name %>
         <a href="/admin/products/<%= products[i].id%>/edit">editar</a>
+      <button id="<%= products[i].id %>" class="buttonDelete" >Deletar</button>
+
     </li>
     <% } %>
 </ul>
+<div id="pagination">
+  <% for (let i=0; i < lastpage; i++){ %>
+    <a class="page <%=  +page === i + 1  ? 'active' : '' %>" href="/admin/products?page=<%= i+1 %>">
+      <%= i + 1 %>
+    </a>
+    <%} %><br />
+</div>
 
-<a href="/admin/products/new">Cadastrar novo produto</a>
+<a class="register" href="/admin/products/new">Cadastrar novo produto</a>
+
+<script src="/javascripts/deleteProduct.js"></script>
+<script src="/javascripts/selected.js"></script>
+<link rel="stylesheet" href="/stylesheets/listProduct.css">
