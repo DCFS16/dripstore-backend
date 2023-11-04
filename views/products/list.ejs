@@ -21,7 +21,10 @@
 
       <ul>
         <% for (let i = 0; i < products.length; i++) { %>
-        <li><%= products[i].name %></li>
+          <li>
+            <%= products[i].name %>
+            <button id="<%= products[i].id %>" class="buttonDelete" >Deletar</button>
+          </li>
         <% } %>
       </ul>
 
@@ -40,4 +43,5 @@
   </div>
 </div>
 
+<script src="/javascripts/deleteProduct.js"></script>
 <link rel="stylesheet" href="/stylesheets/productList.css" />
