@@ -1,4 +1,7 @@
-const REGEX_NUMBER = /^\d+(?:\.\d+)?$/;
+const form = document.querySelector('#form')
+const productName = document.querySelector('#name')
+const productPrice = document.querySelector('#price')
+const result = document.querySelector('#result')
 
 const submitProduct = (data) => {
   const options = {
@@ -12,37 +15,13 @@ const submitProduct = (data) => {
     .catch((err) => console.error(err));
 };
 
-const form = document.querySelector("#form");
-const inputError = document.querySelector("#error-price");
+form.addEventListener('submit', (event) => {
+  event.preventDefault()
+  const formData = new FormData(event.target)
+  const { name, price } = Object.fromEntries(formData)
 
-const validatePriceInput = (input) => {
-  if (REGEX_NUMBER.test(input)) {
-    inputError.classList.toggle("invisible");
-    return false;
-  } else {
-    inputError.classList.toggle("invisible");
-    return true;
-  }
-};
-
-
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  const nameProduct = document.querySelector("#name").value;
-  const priceProduct = document.querySelector("#price").value;
-
-  if (nameProduct === "" || priceProduct === "") {
-    alert("Preencha todos os campos");
-
-  } else if (validatePriceInput(priceProduct)) {
-    console.log('osdfasghldifj');
-
-  } else {
-    console.log(nameProduct, parseFloat(priceProduct), "teste2");
-    // submitProduct({
-    //   name: nameProduct,
-    //   price: priceProduct,
-    // });
-  }
-});
+  submitProduct({
+    name,
+    price: parseFloat(price.replace(",", "."))
+  })
+})

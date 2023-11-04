@@ -1,22 +1,30 @@
 const { Op } = require('sequelize')
 const { Product } = require('../../models/Product')
 
-const list = async (request, response, next) => {
-  const page = request.query.page ?? 1
-  const search = request.query.search ?? ''
-  const perPage = 3
+const list = async (request, response) => {
 
-  const products = await Product.findAll({
-    offset: (page - 1) * perPage,
-    limit: perPage,
-    where:
-      { name: { [Op.like]: `%${search}%` } }
-  })
+  const { page = 1 } = request.query
 
-  response.render('products/list', { products, page, search })
+  const limit = 10
+
+  let lastpage = 1
+
+  const countProduct = await Product.count()
+
+  if (countProduct !== 0) {
+    lastpage = Math.ceil(countProduct / limit)
+    console.log(lastpage)
+
+  } else {
+    response.status(400).json({ mensagem: "Erro: Nenhum produto encontrado!" })
+  }
+
+  const products = await Product.findAll({ order: [['name', 'ASC']], offset: Number((page * limit) - limit), limit: limit })
+
+  response.render('products/list', { products, lastpage, page })
 }
 
-const form = (request, response, next) => {
+const form = (request, response) => {
   response.render('products/form')
 }
 
