@@ -12,5 +12,4 @@ create table Users (
   email varchar(50),
   cpf varchar(11),
   phone varchar(13),
-  primary key(id)
 )

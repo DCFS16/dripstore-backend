@@ -1,5 +1,6 @@
 const express = require('express')
 const { list, form } = require('../controllers/admin/product.controllers')
+const { listUsers } = require('../controllers/admin/user.controllers')
 const router = express.Router()
 
 router.get('/', function (req, res, next) {
@@ -8,5 +9,7 @@ router.get('/', function (req, res, next) {
 
 router.get('/products', list)
 router.get('/products/new', form)
+
+router.get('/users', listUsers)
 
 module.exports = router
