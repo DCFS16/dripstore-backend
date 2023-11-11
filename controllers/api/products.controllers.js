@@ -30,11 +30,10 @@ const create = async (request, response) => {
 
 const remove = async (request, response) => {
   const { id } = request.body
-  const product = await Product.findByPk(id);
-  await product.destroy();
+  const product = await Product.findByPk(id)
+  await product.destroy()
   response.status(200)
   response.json({ product })
-
 }
 
 const update = async (request, response) => {
@@ -51,25 +50,20 @@ const update = async (request, response) => {
     } else {
       response.status(404)
       response.json({
-        message: 'product not found'
+        message: 'product not found',
       })
     }
   } else {
     response.status(400)
-    response.json(
-      {
-        message: 'price invalid'
-      }
-    )
+    response.json({
+      message: 'price invalid',
+    })
   }
-
 }
-
-
 module.exports = {
   list,
   show,
   create,
   remove,
-  update
+  update,
 }

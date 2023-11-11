@@ -1,5 +1,6 @@
 const express = require('express')
 const { list, form, edit } = require('../controllers/admin/product.controllers')
+
 const router = express.Router()
 
 router.get('/', (req, res) => {
