@@ -1,8 +1,8 @@
-const homeController = (request, response, next) => {
+const homeController = (request, response) => {
   response.render('index', { title: 'Express' })
 }
 
-const aboutController = (request, response, next) => {
+const aboutController = (request, response) => {
   response.render('index', { title: 'About' })
 }
 

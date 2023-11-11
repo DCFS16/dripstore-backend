@@ -6,19 +6,18 @@ const {
   database,
   host,
   password,
-  port
+  port,
 } = config.development
-
 
 const sequelize = new Sequelize(
   database,
   username,
   password,
   {
-    host: host,
-    port: port,
+    host,
+    port,
     dialect: 'mysql',
-  }
+  },
 )
 
 module.exports = {

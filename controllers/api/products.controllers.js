@@ -1,6 +1,5 @@
-const { request, response } = require('express')
-const { Product } = require('../../models/Product')
 const { validationResult } = require('express-validator')
+const { Product } = require('../../models/Product')
 
 const list = async (request, response) => {
   const products = await Product.findAll()
@@ -17,10 +16,10 @@ const create = async (request, response) => {
   const errors = validationResult(request)
 
   if (!errors.isEmpty()) {
-    return response.status(400).json({
+    response.status(400).json({
       success: false,
       errors: errors.array(),
-    });
+    })
   }
 
   const product = Product.build({ name, price: +price })
@@ -42,24 +41,24 @@ const update = async (request, response) => {
   const { name, price } = request.body
   const { id } = request.params
 
-  if(price>0){
+  if (price > 0) {
     const product = await Product.findByPk(id)
     product.update({ name, price: +price })
     await product.save()
     if (product) {
       response.status(200)
-      response.json({product})
+      response.json({ product })
     } else {
       response.status(404)
       response.json({
         message: 'product not found'
       })
     }
-  }else{
+  } else {
     response.status(400)
     response.json(
       {
-        message:'price invalid'
+        message: 'price invalid'
       }
     )
   }
