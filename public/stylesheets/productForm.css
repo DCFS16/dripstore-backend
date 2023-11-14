@@ -20,3 +20,14 @@
 #result {
   color: blue;
 }
+
+/* Tabela vendas */
+
+table{
+  border: 2px solid black;
+  margin-top: 10px;
+}
+tr, td, th{
+  border: 1px solid black;
+  padding: 2px;
+}
