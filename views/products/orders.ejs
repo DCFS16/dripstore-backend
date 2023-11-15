@@ -10,7 +10,7 @@
         <tr>
           <th>N° venda</th>
           <th>data</th>
-          <th>Vendedor</th>
+          <th>Usuario</th>
           <th>Produto</th>
           <th>Quantidade</th>
           <th>Valor Unitario</th>
@@ -18,10 +18,29 @@
         </tr>
         <% for (let i = 0; i < countOrders; i++) { %>
           <tr>
-            <%= orders[i].product %>
+            <td>
+              <%= orders[i].id %>
+            </td>
+            <td>
+              <%= orders[i].date %>
+            </td>
+            <td>
+              <%= orders[i].employee %>
+            </td>
+            <td>
+              <%= orders[i].product %>
+            </td>
+            <td>
+              <%= orders[i].amount %>
+            </td>
+            <td>
+              R$ <%= orders[i].price %>
+            </td>
+            <td>
+              R$ <%= orders[i].totalPrice %>
+            </td>
           </tr>
         <% } %>
-
       </table>
     </main>
   </div>

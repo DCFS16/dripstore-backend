@@ -11,7 +11,7 @@ module.exports = {
         autoIncrement: true,
       },
       date:{
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: false
       },
       employee: {

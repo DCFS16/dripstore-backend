@@ -3,7 +3,7 @@ const { sequelize } = require('../config/sequilize')
 
 const Orders = sequelize.define('orders', {
       date:{
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         allowNull: false
       },
       employee: {
