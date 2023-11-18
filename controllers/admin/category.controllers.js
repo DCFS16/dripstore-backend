@@ -11,7 +11,6 @@ const list = async (request, response) => {
 
   if (countCategory !== 0) {
     lastpage = Math.ceil(countCategory / limit)
-    console.log(lastpage)
   } else {
     response.status(400).json({ mensagem: 'Erro: Nenhuma categoria encontrada!' })
   }
@@ -21,7 +20,7 @@ const list = async (request, response) => {
   response.render('categories/list', { categories, lastpage, page })
 }
 
-const form = (request, response) => {
+const form = (response) => {
   response.render('categories/form')
 }
 

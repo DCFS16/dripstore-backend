@@ -2,9 +2,6 @@ const express = require('express')
 const { checkSchema } = require('express-validator')
 const productsController = require('../controllers/api/products.controllers')
 const categoriesController = require('../controllers/api/categories.controllers')
-const {
-  list, create, remove, show,
-} = require('../controllers/api/products.controllers')
 const productSchemaValidator = require('../schemas/products')
 const categorySchemaValidtor = require('../schemas/categories')
 

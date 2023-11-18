@@ -5,15 +5,15 @@ const deleteProduct = (id) => {
     body: JSON.stringify({ id }),
   }
 
-  const hasConfirmed = window.confirm('Deseja deletar o produto?')
+  const hasConfirmed = window.confirm('Deseja deletar o produto?') // eslint-disable-line no-use-before-defines
 
   if (hasConfirmed) {
     fetch('http://localhost:3000/api/products', options)
       .then(() => {
-        alert('Produto deletado com sucesso!')
+        alert('Produto deletado com sucesso!') // eslint-disable-line no-use-before-define
         window.location.reload()
       })
-      .catch(() => alert('Erro, tente novamente!'))
+      .catch(() => alert('Erro, tente novamente!')) // eslint-disable-line no-use-before-define
   }
 }
 

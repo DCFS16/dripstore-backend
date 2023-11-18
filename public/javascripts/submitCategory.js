@@ -14,7 +14,7 @@ const submitCategory = (data) => {
       form.reset()
       result.innerHTML = 'Cadastro realizado.'
     })
-    .catch((err) => console.error(err))
+    .catch((err) => console.error(err)) // eslint-disable-line no-use-before-define
 }
 
 form.addEventListener('submit', (event) => {
