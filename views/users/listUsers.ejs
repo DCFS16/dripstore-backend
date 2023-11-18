@@ -7,15 +7,13 @@
       <main>
         <h1>Usuários</h1>
         <form>
-          <input
-          type="search"
-          value="<%= search %>"
-          name="search"
-          placeholder="Buscar usuário..."
-          />
+          <input type="search" value="<%= search %>" name="search" placeholder="Buscar usuário..." />
         </form>
 
-        <% if (users.length === 0) { %>
+
+
+
+        <% if (users.length===0) { %>
           <p>Nenhum usuário cadastrado</p>
           <% } %>
 
@@ -42,3 +40,6 @@
       </main>
     </div>
 </div>
+
+
+<link rel="stylesheet" href="/stylesheets/userList.css">

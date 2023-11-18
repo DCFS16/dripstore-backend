@@ -2,9 +2,6 @@ const express = require('express')
 const { list, create, remove, show } = require('../controllers/api/products.controllers')
 const { listUsers } = require('../controllers/api/users.controllers')
 const { checkSchema } = require('express-validator')
-const {
-  list, create, remove, show,
-} = require('../controllers/api/products.controllers')
 const productSchemaValidator = require('../schemas/products')
 
 const router = express.Router()
