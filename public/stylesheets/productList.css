@@ -14,3 +14,91 @@ body {
   grid-template-columns: 1fr;
   grid-template-rows: 3.75rem 1fr;
 }
+
+h1{
+  position: absolute;
+}
+.new-product {
+  display: block;
+  text-decoration: none;
+  background-color: rgb(55, 150, 83);
+  color: #ffffff;
+  width: 2rem;
+  font-size: 1.5rem;
+  text-align: center;
+  position: relative;
+  left: 8.5rem;
+  top:0.1rem
+}
+.search{
+  position: relative;
+  top: 0.5rem;
+}
+
+td, th{
+  border-bottom: 1px solid rgb(158, 157, 157);
+  text-align: justify;
+}
+td{
+  padding-left: 0.3rem;
+}
+.action-product{
+  display: flex;
+  justify-content: space-evenly;
+  height: 2rem;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.action-product a{
+  display: block;
+  text-decoration: none;
+  background-color: rgb(106, 43, 131);
+  color: rgb(255, 255, 255);
+  width: 35%;
+  cursor: pointer;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.9rem;
+  text-align: center;
+  line-height: 1.5rem;
+}
+
+.action-product button{
+  border-style: none;
+  font-style: none;
+  background-color: rgb(247, 75, 75);
+  color: rgb(255, 255, 255);
+  width: 35%;
+  font-size: 0.9rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  cursor: pointer;
+}
+tr:nth-child(even){
+  background: rgb(235, 232, 236);
+}
+tr:nth-child(odd) {
+  background: rgb(250, 250, 250);
+}
+
+table{
+  width: 100%;
+  border-spacing: 0;
+  padding-top: 1.2rem;
+}
+.search-product{
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination-number{
+  display: block;
+  text-decoration: none;
+  padding-top: 5px;
+  padding-right: 0.3rem;
+  font-size: 1rem;
+
+}
+#pagination{
+  display: flex;
+  justify-content: end;
+}
