@@ -1,5 +1,5 @@
 const { Category } = require('../../models/Category')
-
+/* eslint-disable */
 const list = async (request, response) => {
   const { page = 1 } = request.query
 
@@ -19,7 +19,7 @@ const list = async (request, response) => {
 
   response.render('categories/list', { categories, lastpage, page })
 }
-/* eslint-disable */
+
 const form = (response) => {
   response.render('categories/form')
 }
