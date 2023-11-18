@@ -21,7 +21,7 @@ const list = async (request, response) => {
 }
 
 /* eslint-disable */
-const form = (response) => {
+const form = async (response) => {
 return response.render('categories/form')
 }
 /* eslint-enable */
