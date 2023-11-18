@@ -15,6 +15,6 @@ router.get('/products', list)
 router.get('/products/:id', show)
 router.post('/products', checkSchema(productSchemaValidator), create)
 router.delete('/products', remove)
-router.put('/products/:id/edit', update)
+router.put('/products/:id/edit', checkSchema(productSchemaValidator), update)
 
 module.exports = router

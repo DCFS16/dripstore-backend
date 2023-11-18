@@ -39,12 +39,17 @@ const remove = async (request, response) => {
 const update = async (request, response) => {
   const { name, price } = request.body
   const { id } = request.params
-
-  if (price > 0) {
-    const product = await Product.findByPk(id)
-    await product.save()
-    product.update({ name, price: +price })
-    if (product) {
+  const errors = validationResult(request)
+  if (!errors.isEmpty()) {
+    response.status(400).json({
+      success: false,
+      errors: errors.array(),
+    })
+  }
+  const product = await Product.findByPk(id)
+  if (product) {
+      product.update({ name, price: +price })
+      await product.save()
       response.status(200)
       response.json({ product })
     } else {
@@ -53,12 +58,6 @@ const update = async (request, response) => {
         message: 'product not found',
       })
     }
-  } else {
-    response.status(400)
-    response.json({
-      message: 'price invalid',
-    })
-  }
 }
 module.exports = {
   list,
