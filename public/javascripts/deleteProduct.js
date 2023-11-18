@@ -4,19 +4,19 @@ const deleteProduct = (id) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ id }),
   }
-
-  const hasConfirmed = window.confirm('Deseja deletar o produto?') // eslint-disable-line no-use-before-defines
+/* eslint-disable */
+  const hasConfirmed = window.confirm('Deseja deletar o produto?')
 
   if (hasConfirmed) {
     fetch('http://localhost:3000/api/products', options)
       .then(() => {
-        alert('Produto deletado com sucesso!') // eslint-disable-line no-use-before-define
+        alert('Produto deletado com sucesso!')
         window.location.reload()
       })
-      .catch(() => alert('Erro, tente novamente!')) // eslint-disable-line no-use-before-define
+      .catch(() => alert('Erro, tente novamente!'))
   }
 }
-
+/* eslint-enable */
 const buttonsDelete = document.querySelectorAll('.buttonDelete')
 buttonsDelete.forEach((button) => {
   button.addEventListener('click', (event) => {

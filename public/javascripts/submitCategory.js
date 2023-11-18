@@ -1,5 +1,4 @@
 const form = document.querySelector('#form')
-const CategoryName = document.querySelector('#name')
 const result = document.querySelector('#result')
 
 const submitCategory = (data) => {
@@ -8,15 +7,15 @@ const submitCategory = (data) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
   }
-
+/* eslint-disable */
   fetch('http://localhost:3000/api/categories', options)
     .then(() => {
       form.reset()
       result.innerHTML = 'Cadastro realizado.'
     })
-    .catch((err) => console.error(err)) // eslint-disable-line no-use-before-define
+    .catch((err) => console.error(err))
 }
-
+/* eslint-enable */
 form.addEventListener('submit', (event) => {
   event.preventDefault()
   const formData = new FormData(event.target)

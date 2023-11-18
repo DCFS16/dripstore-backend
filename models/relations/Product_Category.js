@@ -1,7 +1,8 @@
 const { DataTypes } = require('sequelize')
 const { sequelize } = require('../../config/sequilize')
 
-const Product_Category = sequelize.define('Product_Category', { // eslint-disable-line no-use-before-define
+/* eslint-disable */
+const Product_Category = sequelize.define('Product_Category', {
   products_id: {
     type: DataTypes.INTEGER,
     references: {
@@ -9,6 +10,8 @@ const Product_Category = sequelize.define('Product_Category', { // eslint-disabl
       key: 'id',
     },
   },
+
+ /* eslint-enable */
 
   categories_id: {
     type: DataTypes.INTEGER,
@@ -22,5 +25,6 @@ const Product_Category = sequelize.define('Product_Category', { // eslint-disabl
 }, {
   tableName: 'product_categories',
 })
-
-module.exports = { Product_Category }  // eslint-disable-line no-use-before-define
+/* eslint-disable */
+module.exports = { Product_Category }
+/* eslint-enable */

@@ -1,8 +1,9 @@
 const { DataTypes } = require('sequelize')
 const { sequelize } = require('../config/sequilize')
 const { Category } = require('./Category')
-const { Product_Category } = require('./relations/Product_Category') // eslint-disable-line no-use-before-define
-
+/* eslint-disable */
+const { Product_Category } = require('./relations/Product_Category')
+/* eslint-enable */
 const Product = sequelize.define('Product', {
   id: {
     allowNull: false,
@@ -21,10 +22,10 @@ const Product = sequelize.define('Product', {
 }, {
   timestamps: false,
 })
-
+/* eslint-disable */
 Product.belongsToMany(Category, {
   through: {
-    model: Product_Category, // eslint-disable-line no-use-before-define
+    model: Product_Category,
   },
   foreignKey: 'products_id',
   constraints: true,
@@ -32,12 +33,12 @@ Product.belongsToMany(Category, {
 
 Category.belongsToMany(Product, {
   through: {
-    model: Product_Category, // eslint-disable-line no-use-before-define
+    model: Product_Category,
   },
   foreignKey: 'categories_id',
   constraints: true,
 })
-
+/* eslint-enable */
 module.exports = {
   Product,
 }
