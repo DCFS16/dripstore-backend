@@ -1,12 +1,12 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/sequilize');
 
-const Order = sequelize.define('order', {
+const Order = sequelize.define('orders', {
   id: {
     allowNull: false,
     autoIncrement: true,
     primaryKey: true,
-    type: Sequelize.INTEGER,
+    type: DataTypes.INTEGER,
   },
 
   user_id: {

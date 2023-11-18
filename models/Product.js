@@ -41,7 +41,7 @@ Category.belongsToMany(Product, {
   constraints: true,
 })
 
-Product.belongsTo(Order, {
+Product.belongsToMany(Order, {
   through: {
     model: Product_Order,
   },
@@ -49,7 +49,7 @@ Product.belongsTo(Order, {
   constraints: true,
 })
 
-Order.belongsTo(Product, {
+Order.belongsToMany(Product, {
   through: {
     model: Product_Order,
   },
