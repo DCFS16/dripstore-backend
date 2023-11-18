@@ -42,8 +42,8 @@ const update = async (request, response) => {
 
   if (price > 0) {
     const product = await Product.findByPk(id)
-    product.update({ name, price: +price })
     await product.save()
+    product.update({ name, price: +price })
     if (product) {
       response.status(200)
       response.json({ product })
