@@ -8,13 +8,13 @@ const list = async (request, response) => {
   let lastpage = 1
 
   const countCategory = await Category.count()
-  /* eslint-disable */
+
   if (countCategory !== 0) {
     lastpage = Math.ceil(countCategory / limit)
   } else {
     response.status(400).json({ mensagem: 'Erro: Nenhuma categoria encontrada!' })
   }
-  /* eslint-enable */
+
   const categories = await Category.findAll({ order: [['name', 'ASC']], offset: Number((page * limit) - limit), limit })
 
   response.render('categories/list', { categories, lastpage, page })
@@ -22,7 +22,6 @@ const list = async (request, response) => {
 
 const form = async (response) => {
   response.render('categories/form')
-  return true
 }
 
 module.exports = {
