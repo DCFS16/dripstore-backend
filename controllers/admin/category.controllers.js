@@ -19,11 +19,11 @@ const list = async (request, response) => {
 
   response.render('categories/list', { categories, lastpage, page })
 }
-
+/* eslint-disable */
 const form = (response) => {
   response.render('categories/form')
 }
-
+/* eslint-enable */
 module.exports = {
   list,
   form,

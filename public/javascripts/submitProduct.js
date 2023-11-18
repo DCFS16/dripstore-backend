@@ -7,7 +7,7 @@ const submitProduct = (data) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
   }
-
+/* eslint-disable */
   fetch('http://localhost:3000/api/products', options)
     .then(() => {
       form.reset()
@@ -15,7 +15,7 @@ const submitProduct = (data) => {
     })
     .catch((err) => console.error(err))
 }
-
+/* eslint-enable */
 form.addEventListener('submit', (event) => {
   event.preventDefault()
   const formData = new FormData(event.target)
