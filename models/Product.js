@@ -3,6 +3,8 @@ const { sequelize } = require('../config/sequilize')
 const { Category } = require('./Category')
 /* eslint-disable */
 const { Product_Category } = require('./relations/Product_Category')
+const { Product_Order } = require('./relations/Product_Order')
+const { Order } = require('./Order')
 /* eslint-enable */
 const Product = sequelize.define('Product', {
   id: {
@@ -38,6 +40,28 @@ Category.belongsToMany(Product, {
   foreignKey: 'categories_id',
   constraints: true,
 })
+
+Product.belongsTo(Order, {
+  through: {
+    model: Product_Order,
+  },
+  foreignKey: 'products_id',
+  constraints: true,
+})
+
+Order.belongsTo(Product, {
+  through: {
+    model: Product_Order,
+  },
+  foreignKey: 'order_id',
+  constraints: true,
+})
+
+
+
+
+
+
 /* eslint-enable */
 module.exports = {
   Product,
