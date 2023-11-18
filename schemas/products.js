@@ -1,35 +1,35 @@
-require("express-validator");
+require('express-validator')
 
 const productSchemaValidator = {
   name: {
     exists: {
       options: { checkFalsy: true },
-      errorMessage: "Nome é Obrigatório",
+      errorMessage: 'Nome é Obrigatório',
     },
 
-    isString: { errorMessage: "Nome deve ser uma String" },
+    isString: { errorMessage: 'Nome deve ser uma String' },
 
     isLength: {
       options: { max: 50 },
-      errorMessage: "Nome deve ter até 50 caracteres",
+      errorMessage: 'Nome deve ter até 50 caracteres',
     },
   },
 
   price: {
     exists: {
       options: { checkFalsy: true },
-      errorMessage: "Preço é Obrigatório!",
+      errorMessage: 'Preço é Obrigatório!',
     },
 
-    isNumeric: { errorMessage: "Preço dever ser um Número" },
+    isNumeric: { errorMessage: 'Preço dever ser um Número' },
 
     custom: {
       options: (value) => {
-        const regex = /^\d+(\.\d{1,2})?$/;
+        const regex = /^\d+(\.\d{1,2})?$/
         if (!regex.test(value)) {
-          throw new Error("Preço deve ter até duas casas decimais");
+          throw new Error('Preço deve ter até duas casas decimais')
         }
-        return true;
+        return true
       },
     },
   },

@@ -3,7 +3,7 @@ const { list, form } = require('../controllers/admin/product.controllers')
 const { listUsers } = require('../controllers/admin/user.controllers')
 const router = express.Router()
 
-router.get('/', function (req, res, next) {
+router.get('/', (req, res) => {
   res.send('Wellcome to the DripStore ADMIN')
 })
 
