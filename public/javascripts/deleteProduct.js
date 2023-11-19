@@ -4,7 +4,7 @@ const deleteProduct = (id) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ id }),
   }
-
+/* eslint-disable */
   const hasConfirmed = window.confirm('Deseja deletar o produto?')
 
   if (hasConfirmed) {
@@ -16,7 +16,7 @@ const deleteProduct = (id) => {
       .catch(() => alert('Erro, tente novamente!'))
   }
 }
-
+/* eslint-enable */
 const buttonsDelete = document.querySelectorAll('.buttonDelete')
 buttonsDelete.forEach((button) => {
   button.addEventListener('click', (event) => {

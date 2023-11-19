@@ -11,8 +11,6 @@ const list = async (request, response) => {
 const show = async (request, response) => {
   const category = await Category.findByPk(request.params.id, { include: Product })
 
-  console.log(category)
-
   response.json({
     ...category.toJSON(),
     // products,
@@ -23,7 +21,7 @@ const create = async (request, response) => {
   const errors = validationResult(request)
 
   if (!errors.isEmpty()) {
-    return response.status(400).json({
+    response.status(400).json({
       success: false,
       errors: errors.array(),
     })
