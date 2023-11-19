@@ -1,13 +1,20 @@
-<div class="container">
-  <h1 id="formTitulo">Cadastro de Categoria</h1>
-  <form id="form">
-    <label for="name">Nome</label>
-    <input name="name" id="name" type="text">
-    <span id="result"></span>
-    <button id="save">Salvar</button>
-  </form>
-  <a href="/admin/categories/">Lista de categorias</a>
+<div class="container-main">
+  <%- include('../_partials/aside') %>
+  <div class="main-section">
+    <div class="header"><%- include('../_partials/header') %></div>
+    <main class="form-container">
+      <form id="form" class="space-y-4">
+        <h1>Nova Categoria</h1>
+        <div class="container-flex-inputs">
+          <label for="name">Nome</label>
+          <input name="name" type="text" />
+        </div>
+        <div id="result"></div>
+        <button id="submit-button" type="submit">Salvar</button>
+      </form>
+    </main>
+  </div>
 </div>
 
+<link rel="stylesheet" href="/stylesheets/form.css" />
 <script src="/javascripts/submitCategory.js"></script>
-<link rel="stylesheet" href="/stylesheets/productForm.css">
