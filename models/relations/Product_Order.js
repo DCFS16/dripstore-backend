@@ -10,17 +10,17 @@ const Product_Order = sequelize.define('Product_Order', {
     },
   },
 
-  order_id: {
+  orders_id: {
     type: DataTypes.INTEGER,
     references: {
-      model: 'order',
+      model: 'orders',
       key: 'id',
     },
   },
 }, {
   timestamps: true,
 }, {
-  tableName: 'product_order',
+  tableName: 'product_orders',
 })
 
 module.exports = { Product_Order }

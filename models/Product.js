@@ -53,7 +53,7 @@ Order.belongsToMany(Product, {
   through: {
     model: Product_Order,
   },
-  foreignKey: 'order_id',
+  foreignKey: 'orders_id',
   constraints: true,
 })
 
