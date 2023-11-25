@@ -7,3 +7,11 @@ dropdowns.forEach((dropdown) => {
       .classList.toggle('sub-menu-visible')
   })
 })
+
+
+
+window.onload = () => {
+  document.querySelector('.toggle-aside-menu').addEventListener('click', () => {
+    document.querySelector('.main-aside').classList.toggle('hidden')
+  })
+}

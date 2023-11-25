@@ -34,6 +34,10 @@ main {
   justify-content: space-between;
 }
 
+.main-header .menu-icon-wrapper {
+  cursor: pointer;
+}
+
 .main-header a {
   display: block;
   margin-left: 8px;

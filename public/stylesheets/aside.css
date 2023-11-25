@@ -5,6 +5,15 @@
   background-color: #7f69bc;
   padding: 40px 20px;
   user-select: none;
+  transition: .3s;
+}
+
+.main-aside.hidden {
+  width: 0;
+  min-width: 0;
+  opacity: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 .main-aside ul {
