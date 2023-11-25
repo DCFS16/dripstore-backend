@@ -1,6 +1,6 @@
-const { User } = require('../../models/Users')
+const { User } = require('../../models/User')
 
-const listUsers = async (request, response) => {
+const list = async (request, response) => {
   const { page = 1 } = request.query
 
   const limit = 10
@@ -14,14 +14,14 @@ const listUsers = async (request, response) => {
 
   const users = await User.findAll({ offset: Number((page * limit) - limit), limit: limit })
 
-  response.render('users/listUsers', { users, lastpage, page, search: '' })
+  response.render('users/list', { users, lastpage, page, search: '' })
 }
 
-const formUsers = (request, response) =>{
-  response.render('users/formUsers')
+const form = (request, response) => {
+  response.render('users/form')
 }
 
 module.exports = {
-  listUsers,
-  formUsers
+  list,
+  form,
 }

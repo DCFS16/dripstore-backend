@@ -13,19 +13,27 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING(50),
-        allowNull: false
+        allowNull: true
       },
       email: {
         type: Sequelize.STRING(50),
-        allowNull: false
+        allowNull: true
       },
       cpf: {
         type: Sequelize.STRING(11),
-        allowNull: false
+        allowNull: true
       },
       phone: {
         type: Sequelize.STRING(13),
-        allowNull: false
+        allowNull: true
+      },
+      password: {
+        type: Sequelize.STRING(200),
+        allowNull: true
+      },
+      salt: {
+        type: Sequelize.STRING(200),
+        allowNull: true
       }
     });
   },
