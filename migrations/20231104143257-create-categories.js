@@ -18,7 +18,7 @@ module.exports = {
       timestamps: false,
     })
 
-    await queryInterface.createTable('products_categories', {
+    await queryInterface.createTable('product_categories', {
       products_id: {
         type: DataTypes.INTEGER,
         references: {
@@ -40,7 +40,7 @@ module.exports = {
   },
 
   async down(queryInterface) {
-    await queryInterface.dropTable('product_category')
-    await queryInterface.dropTable('category')
+    await queryInterface.dropTable('product_categories')
+    await queryInterface.dropTable('categories')
   },
 }

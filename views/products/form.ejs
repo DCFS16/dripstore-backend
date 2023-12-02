@@ -22,7 +22,8 @@
         </div>
         <div class="container-flex-inputs">
           <label for="category">Categoria</label>
-          <select name="category" id="category" class="category" multiple="multiple"><option disabled selected>Selecione Categorias</option></select>
+          <select name="category[]" id="category" class="category">
+          </select>
           <span id="error-category" class="invisible">erro</span>
         </div>
         <div id="result"></div>
@@ -35,61 +36,6 @@
 <link rel="stylesheet" href="/stylesheets/form.css" />
 
 <script>
-  // $('#category').select2({
-  //   ajax: {
-  //     url: '/api/categories',
-  //     type: 'GET',
-  //     delay: 250,
-  //     dataType: 'json',
-  //     processResults: function (data) {
-  //       const results = [];
-  //       $.each(data, function(Category) {results.push({id: Category.id, name:Category.name})})
-
-  //       return {
-  //         results:results
-  //       }
-  //       },
-  //     },
-  //     cache: true
-  // });
-
-  // $('#category').select2({
-  //   ajax: {
-  //     url: 'http://localhost:3000/api/categories',
-  //     type: 'GET',
-  //     delay: 250,
-  //     dataType: 'json',
-  //     processResults: function (data) {
-  //       return {
-  //         results: $.map(data, function (obj) {
-  //           return { id: obj.id, text: obj.name };
-  //         }),
-  //       };
-  //     },
-  //     cache: true,
-  //   },
-  // });
-
-//     $('#category').select2({
-//     ajax: {
-//         type: 'GET',
-//         url: 'http://localhost:3000/api/categories',
-//         dataType: 'json',
-//         data: function () {
-//             return {
-//                 JSON,
-//             };
-//         },
-//         processResults: function (data) {
-//             return {
-//                 results: $.map(data, function(obj) {
-//                     return { id: obj.id, text: obj.name };
-//                 })
-//             };
-//         }
-//     }
-// });
-
 $(document).ready(function() {
   $('.category').select2({
     placeholder: 'Selecione Categoria',
@@ -100,44 +46,14 @@ $(document).ready(function() {
       type: 'GET',
       dataType: 'JSON',
       processResults: function(data) {
+        console.log(data)
         return {
-          results: data.name
+          results: data.categories.map(({ id, name }) => ({ id, text: name }))
         }
       }
     },
   })
 })
-
-<!--A melhor até agora!-->
-
-  // $(document).ready(function() {
-  //   $('#category').select2({
-  //     placeholder: 'Selecione Categoria',
-  //     multiple: true,
-  //     ajax: {
-  //       url: 'http://localhost:3000/api/categories',
-  //       type: "GET",
-  //       dataType: 'json'
-  //     },
-
-  //     data: function(id, name) {
-  //       return {
-  //         name: data.name,
-  //         id: data.id
-  //       }
-  //     },
-
-  //     processResults: function (data) {
-  //       return {
-  //         results: $.map(data, {
-  //           return: {
-  //             id: data.id, name: data.name
-  //           }
-  //         })
-  //       }
-  //       }
-  //   });
-  // })
 </script>
 
 

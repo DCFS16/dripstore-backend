@@ -27,7 +27,12 @@ const create = async (request, response) => {
 
   const product = Product.build({ name, price: +price })
 
+  // console.log(product.getCategory)
+  console.log(product.setCategories)
+
   await product.save()
+
+  await product.setCategories([2, 4])
 
   response.status(201)
   response.json({ product })

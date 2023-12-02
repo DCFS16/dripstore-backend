@@ -18,6 +18,8 @@
               <% for (let i=0; i < products.length; i++) { %>
                 <li>
                   <%= products[i].name %>
+                  <%= products[i].price %>
+                  <%= products[i].categories %>
                     <button id="<%= products[i].id %>" class="buttonDelete">Deletar</button>
                 </li>
                 <% } %>
