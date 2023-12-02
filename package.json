@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "lint": "eslint .",
+    "lint": "eslint . --fix",
     "db:create": "sequelize-cli db:create",
     "db:migrate": "sequelize-cli db:migrate",
     "migration:generate": "sequelize-cli migration:generate --name"
