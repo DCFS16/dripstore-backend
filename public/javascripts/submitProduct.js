@@ -19,11 +19,11 @@ const submitProduct = (data) => {
 form.addEventListener('submit', (event) => {
   event.preventDefault()
   const formData = new FormData(event.target)
-  const { name, price, categories } = Object.fromEntries(formData)
+  const { name, price } = Object.fromEntries(formData)
 
   submitProduct({
     name,
     price: parseFloat(price.replace(',', '.')),
-    categories,
+    categories: $('.category').val(),
   })
 })
