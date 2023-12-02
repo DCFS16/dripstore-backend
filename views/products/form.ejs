@@ -1,3 +1,7 @@
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 <div class="container-main">
   <%- include('../_partials/aside') %>
   <div class="main-section">
@@ -16,6 +20,11 @@
           <input name="price" type="text" />
           <span id="error-price" class="invisible">erro</span>
         </div>
+        <div class="container-flex-inputs">
+          <label for="category">Categoria</label>
+          <select name="category" id="category" class="category" multiple="multiple"><option disabled selected>Selecione Categorias</option></select>
+          <span id="error-category" class="invisible">erro</span>
+        </div>
         <div id="result"></div>
         <button id="submit-button" type="submit">Salvar</button>
       </form>
@@ -24,4 +33,112 @@
 </div>
 
 <link rel="stylesheet" href="/stylesheets/form.css" />
+
+<script>
+  // $('#category').select2({
+  //   ajax: {
+  //     url: '/api/categories',
+  //     type: 'GET',
+  //     delay: 250,
+  //     dataType: 'json',
+  //     processResults: function (data) {
+  //       const results = [];
+  //       $.each(data, function(Category) {results.push({id: Category.id, name:Category.name})})
+
+  //       return {
+  //         results:results
+  //       }
+  //       },
+  //     },
+  //     cache: true
+  // });
+
+  // $('#category').select2({
+  //   ajax: {
+  //     url: 'http://localhost:3000/api/categories',
+  //     type: 'GET',
+  //     delay: 250,
+  //     dataType: 'json',
+  //     processResults: function (data) {
+  //       return {
+  //         results: $.map(data, function (obj) {
+  //           return { id: obj.id, text: obj.name };
+  //         }),
+  //       };
+  //     },
+  //     cache: true,
+  //   },
+  // });
+
+//     $('#category').select2({
+//     ajax: {
+//         type: 'GET',
+//         url: 'http://localhost:3000/api/categories',
+//         dataType: 'json',
+//         data: function () {
+//             return {
+//                 JSON,
+//             };
+//         },
+//         processResults: function (data) {
+//             return {
+//                 results: $.map(data, function(obj) {
+//                     return { id: obj.id, text: obj.name };
+//                 })
+//             };
+//         }
+//     }
+// });
+
+$(document).ready(function() {
+  $('.category').select2({
+    placeholder: 'Selecione Categoria',
+    debugger: true,
+    multiple: true,
+    ajax: {
+      url:'http://localhost:3000/api/categories',
+      type: 'GET',
+      dataType: 'JSON',
+      processResults: function(data) {
+        return {
+          results: data.name
+        }
+      }
+    },
+  })
+})
+
+<!--A melhor até agora!-->
+
+  // $(document).ready(function() {
+  //   $('#category').select2({
+  //     placeholder: 'Selecione Categoria',
+  //     multiple: true,
+  //     ajax: {
+  //       url: 'http://localhost:3000/api/categories',
+  //       type: "GET",
+  //       dataType: 'json'
+  //     },
+
+  //     data: function(id, name) {
+  //       return {
+  //         name: data.name,
+  //         id: data.id
+  //       }
+  //     },
+
+  //     processResults: function (data) {
+  //       return {
+  //         results: $.map(data, {
+  //           return: {
+  //             id: data.id, name: data.name
+  //           }
+  //         })
+  //       }
+  //       }
+  //   });
+  // })
+</script>
+
+
 <script src="/javascripts/submitProduct.js"></script>
