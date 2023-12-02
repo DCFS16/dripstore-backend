@@ -11,10 +11,11 @@ const list = async (request, response) => {
 
   lastpage = Math.ceil(countUser / limit)
 
+  const users = await User.findAll({ offset: Number((page * limit) - limit), limit })
 
-  const users = await User.findAll({ offset: Number((page * limit) - limit), limit: limit })
-
-  response.render('users/list', { users, lastpage, page, search: '' })
+  response.render('users/list', {
+    users, lastpage, page, search: '',
+  })
 }
 
 const form = (request, response) => {

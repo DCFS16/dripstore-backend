@@ -1,7 +1,7 @@
 const express = require('express')
 const productController = require('../controllers/admin/product.controller')
 const userController = require('../controllers/admin/user.controller')
-const { checkAuth } = require('../middlewares/auth.middleware')
+
 const router = express.Router()
 
 router.get('/', (request, response) => {

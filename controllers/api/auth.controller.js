@@ -1,20 +1,18 @@
 const bcrypt = require('bcrypt')
-var jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
 
 const { User } = require('../../models/User')
 
 const login = async (request, response) => {
-
   const user = await User.findOne({
     where: {
-      email: request.body.email.trim()
-    }
+      email: request.body.email.trim(),
+    },
   })
-
 
   const isPasswordRight = user && await bcrypt.compare(
     request.body.password,
-    user.password
+    user.password,
   )
 
   if (isPasswordRight) {
@@ -27,7 +25,7 @@ const login = async (request, response) => {
   } else {
     response.status(401)
     response.json({
-      message: 'Verifique e-mail e senha e tente novamente'
+      message: 'Verifique e-mail e senha e tente novamente',
     })
   }
 }

@@ -9,7 +9,6 @@ const list = async (request, response) => {
   response.json({ users })
 }
 
-
 const create = async (request, response) => {
   const { password } = request.body
 
@@ -30,5 +29,5 @@ const create = async (request, response) => {
 
 module.exports = {
   list,
-  create
+  create,
 }

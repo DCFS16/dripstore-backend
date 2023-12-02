@@ -1,5 +1,3 @@
-'use strict';
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -8,20 +6,20 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true,
-        autoIncrement: true
+        autoIncrement: true,
       },
       jwt: {
         type: Sequelize.STRING(200),
-        allowNull: false
+        allowNull: false,
       },
       users_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
       },
-    });
+    })
   },
 
-  async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('auth_tokens');
-  }
-};
+  async down(queryInterface) {
+    await queryInterface.dropTable('auth_tokens')
+  },
+}
