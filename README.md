@@ -29,7 +29,10 @@ npm run db:create
 ```
 npm run db:migrate
 ```
-
+### Rodar as Seeds
+```
+npx sequelize-cli db:seed:all
+```
 ### Inicie o servidor
 ```
 npm start

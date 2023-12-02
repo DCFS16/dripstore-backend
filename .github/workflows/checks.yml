@@ -3,6 +3,7 @@ name: Checks
 on:
   pull_request:
     types:
+      - create
       - synchronize
 
 jobs:

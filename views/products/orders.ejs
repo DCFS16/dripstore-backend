@@ -1,0 +1,51 @@
+<div class="container-main">
+  <%- include('../_partials/aside') %>
+  <div class="main-section">
+    <div class="header">
+      <%- include('../_partials/header') %>
+    </div>
+    <main class="form-container">
+      <h1 id="Cabecalho">Relatorio de Vendas</h1>
+      <table>
+        <tr>
+          <th>N° venda</th>
+          <th>data</th>
+          <th>Usuario</th>
+          <th>Produto</th>
+          <th>Quantidade</th>
+          <th>Valor Unitario</th>
+          <th>Valor Total</th>
+        </tr>
+        <% for (let i = 0; i < countOrders; i++) { %>
+          <tr>
+            <td>
+              <%= orders[i].id %>
+            </td>
+            <td>
+              <%= orders[i].date %>
+            </td>
+            <td>
+              <%= orders[i].employee %>
+            </td>
+            <td>
+              <%= orders[i].product %>
+            </td>
+            <td>
+              <%= orders[i].amount %>
+            </td>
+            <td>
+              R$ <%= orders[i].price %>
+            </td>
+            <td>
+              R$ <%= orders[i].totalPrice %>
+            </td>
+          </tr>
+        <% } %>
+      </table>
+    </main>
+  </div>
+</div>
+
+<link rel="stylesheet" href="/stylesheets/form.css" />
+<!-- <script src="/javascripts/submitProduct.js"></script> -->
+<link rel="stylesheet" href="/stylesheets/productForm.css">
