@@ -1,6 +1,6 @@
 const { request } = require('express')
 const { Product } = require('../../models/Product')
-const { Orders } = require('../../models/Orders')
+const { Orders } = require('../../models/Order')
 
 const list = async (request, response) => {
   const { page = 1 } = request.query
@@ -27,9 +27,9 @@ const form = (request, response) => {
 const orders = async (request, response) => {
   const countOrders = await Orders.count()
 
-  const orders = await Orders.findAll({order: [['id', 'ASC']]})
+  const orders = await Orders.findAll({ order: [['id', 'ASC']] })
   console.log(orders)
-  response.render('products/orders', {orders, countOrders })
+  response.render('products/orders', { orders, countOrders })
 }
 
 module.exports = {

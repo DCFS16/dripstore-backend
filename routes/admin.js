@@ -1,6 +1,7 @@
 const express = require('express')
 const productController = require('../controllers/admin/product.controllers')
 const categoryController = require('../controllers/admin/category.controllers')
+const orderController = require('../controllers/admin/order.controllers')
 const { Product } = require('../models/Product')
 
 const router = express.Router()
@@ -22,5 +23,7 @@ router.get('/products/new', productController.form)
 
 router.get('/categories', categoryController.list)
 router.get('/categories/new', categoryController.form)
+
+router.get('/orders', orderController.list)
 
 module.exports = router
