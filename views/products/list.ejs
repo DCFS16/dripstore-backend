@@ -1,5 +1,68 @@
 <div class="container-list">
   <%- include('../_partials/aside') %>
+<<<<<<< HEAD
+  <div class="main-container-products">
+    <div>
+      <%- include('../_partials/header') %>
+    </div>
+    <main>
+      <div class="search-product">
+        <h1>Produtos</h1>
+        <div>
+          <a class="new-product" href="/admin/products/new">+</a>
+        </div>
+        <form>
+          <input class="search"
+            type="search"
+            value="<%= search %>"
+            name="search"
+            placeholder="Buscar produto..."
+          />
+        </div>
+      </form>
+
+      <% if (products.length === 0) { %>
+        <p>Nenhum produto cadastrado</p>
+      <% } %>
+
+      <table>
+            <thead>
+              <tr>
+                <th>Produto</th>
+                <th>Preço</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (let i=0; i < products.length; i++) { %>
+              <tr>
+                    <td class="name-product">
+                      <%= products[i].name %>
+                    </td>
+                    <td class="price-product">
+                      <%= products[i].price %>
+                    </td>
+                    <td class="action-product">
+                      <a href="/admin/products/<%= products[i].id%>/edit">Editar</a>
+                      <button id="<%= products[i].id %>" class="buttonDelete">Deletar</button>
+                    </td>
+                  <% } %>
+              </tr>
+            </tbody>
+        </table>
+
+      <div id="pagination" >
+        <% for (let i=0; i < lastpage; i++){ %>
+          <a class=" pagination-number page <%=  +page === i + 1  ? 'active' : '' %>" href="/admin/products?page=<%= i+1 %>">
+            <%= i + 1 %>
+          </a>
+          <%} %><br />
+      </div>
+
+
+    </main>
+  </div>
+=======
     <div class="main-container">
       <div>
         <%- include('../_partials/header') %>
@@ -40,6 +103,7 @@
             </div>
       </main>
     </div>
+>>>>>>> origin/main
 </div>
 
 <script src="/javascripts/deleteProduct.js"></script>
