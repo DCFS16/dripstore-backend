@@ -1,5 +1,6 @@
 const { validationResult } = require('express-validator')
 const { Product } = require('../../models/Product')
+const { ProductCategory } = require('../../models/relations/ProductCategory')
 
 const list = async (request, response) => {
   const products = await Product.findAll()
@@ -12,7 +13,6 @@ const show = async (request, response) => {
 }
 
 const create = async (request, response) => {
-  const { name, price } = request.body
   const errors = validationResult(request)
 
   if (!errors.isEmpty()) {
@@ -22,8 +22,15 @@ const create = async (request, response) => {
     })
   }
 
+  const { name, price, categories } = request.body
+
+  console.log(categories)
+
   const product = Product.build({ name, price: +price })
   await product.save()
+
+  await product.setCategories(categories)
+
   response.status(201)
   response.json({ product })
 }
@@ -31,6 +38,7 @@ const create = async (request, response) => {
 const remove = async (request, response) => {
   const { id } = request.body
   const product = await Product.findByPk(id)
+  await ProductCategory.destroy({ where: { products_id: product.id } })
   await product.destroy()
   response.status(200)
   response.json({ product })
@@ -48,16 +56,16 @@ const update = async (request, response) => {
   }
   const product = await Product.findByPk(id)
   if (product) {
-      product.update({ name, price: +price })
-      await product.save()
-      response.status(200)
-      response.json({ product })
-    } else {
-      response.status(404)
-      response.json({
-        message: 'product not found',
-      })
-    }
+    product.update({ name, price: +price })
+    await product.save()
+    response.status(200)
+    response.json({ product })
+  } else {
+    response.status(404)
+    response.json({
+      message: 'product not found',
+    })
+  }
 }
 module.exports = {
   list,

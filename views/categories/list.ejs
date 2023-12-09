@@ -1,0 +1,37 @@
+<div class="container-list">
+  <%- include('../_partials/aside') %>
+  <div class="main-container">
+    <div><%- include('../_partials/header') %></div>
+    <main>
+      <h1>Categorias</h1>
+      <% if (categories.length > 0) { %>
+      <ul>
+        <% for (let i=0; i < categories.length; i++) { %>
+        <li>
+          <%= categories[i].name %>
+          <button id="<%= categories[i].id %>" class="buttonDelete">
+            Deletar
+          </button>
+        </li>
+        <% } %>
+      </ul>
+      <div id="pagination">
+        <% for (let i=0; i < lastpage; i++){ %>
+        <a
+          class="page <%= +page === i + 1 ? 'active' : '' %>"
+          href="/admin/categories=<%= i+1 %>"
+        >
+          <%= i + 1 %>
+        </a>
+        <%} %><br />
+      </div>
+      <%} else { %>
+      <p>Nehuma categoria cadastrada</p>
+      <a class="register" href="/admin/categories/new">Cadastrar nova categoria</a>
+      <% } %>
+    </main>
+  </div>
+</div>
+
+<script src="/javascripts/deleteCategory.js"></script>
+<link rel="stylesheet" href="/stylesheets/list.css" />
