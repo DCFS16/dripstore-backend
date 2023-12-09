@@ -48,16 +48,16 @@ const update = async (request, response) => {
   }
   const product = await Product.findByPk(id)
   if (product) {
-      product.update({ name, price: +price })
-      await product.save()
-      response.status(200)
-      response.json({ product })
-    } else {
-      response.status(404)
-      response.json({
-        message: 'product not found',
-      })
-    }
+    product.update({ name, price: +price })
+    await product.save()
+    response.status(200)
+    response.json({ product })
+  } else {
+    response.status(404)
+    response.json({
+      message: 'product not found',
+    })
+  }
 }
 module.exports = {
   list,
