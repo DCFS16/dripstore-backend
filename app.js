@@ -9,6 +9,7 @@ const app = express()
 const indexRouter = require('./routes/index')
 const adminRouter = require('./routes/admin')
 const apiRouter = require('./routes/api')
+const { checkAuth } = require('./middlewares/auth.middleware')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -21,7 +22,7 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
-app.use('/admin', adminRouter)
+app.use('/admin', checkAuth, adminRouter)
 app.use('/api', apiRouter)
 
 // catch 404 and forward to error handler

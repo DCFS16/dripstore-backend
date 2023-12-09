@@ -1,0 +1,42 @@
+<div class="container-user-list">
+  <%- include('../_partials/aside') %>
+    <div class="main-container-user">
+      <div>
+        <%- include('../_partials/header') %>
+      </div>
+      <main>
+        <h1>Usuários</h1>
+        <form>
+          <input type="search" value="<%= search %>" name="search" placeholder="Buscar usuário..." />
+        </form>
+
+        <% if (users.length===0) { %>
+          <p>Nenhum usuário cadastrado</p>
+          <% } %>
+
+            <ul>
+              <% for (let i=0; i < users.length; i++) { %>
+                <li>
+                  <%= users[i].name %>
+                    <button id="<%= users[i].id %>" class="buttonDelete">Deletar</button>
+                </li>
+                <% } %>
+            </ul>
+
+            <div id="pagination">
+              <% for (let i=0; i < lastpage; i++){ %>
+                <a class="page <%=  +page === i + 1  ? 'active' : '' %>" href="/admin/users?page=<%= i+1 %>">
+                  <%= i + 1 %>
+                </a>
+                <%} %><br />
+            </div>
+
+            <div>
+              <a href="/admin/users/new">Cadastrar novo produto</a>
+            </div>
+      </main>
+    </div>
+</div>
+
+
+<link rel="stylesheet" href="/stylesheets/userList.css">

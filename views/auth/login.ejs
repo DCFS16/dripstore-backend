@@ -1,0 +1,46 @@
+<form id="form" novalidate>
+  <label>
+    E-mail
+    <input type="email" type="email" name="email" />
+  </label>
+  <label>
+    Password
+    <input type="password" type="password"  name="password" />
+  </label>
+
+  <button>Entrar</button>
+  <a href="#">Esqueci minha senha</a>
+</form>
+
+<script>
+  const form = document.getElementById('form')
+
+
+  const submitLogin = (data) => {
+    const options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    }
+
+    fetch('http://localhost:3000/api/auth', options)
+      .then((response) => {
+        // form.reset()
+        return response.json()
+      })
+      .then(({ jwt }) => {
+        localStorage.setItem('token', jwt)
+        window.location.href = '/admin'
+      })
+      .catch((err) => console.error(err))
+  }
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault()
+
+    const formData = new FormData(event.target)
+    submitLogin(Object.fromEntries(formData))
+  })
+
+
+</script>
