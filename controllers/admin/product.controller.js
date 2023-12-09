@@ -25,7 +25,13 @@ const form = (request, response) => {
   response.render('products/form')
 }
 
+const edit = async (request, response) => {
+  const product = await Product.findByPk(request.params.id)
+  response.render('products/edit', { product })
+}
+
 module.exports = {
   list,
   form,
+  edit,
 }

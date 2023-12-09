@@ -21,6 +21,7 @@ router.get('/products', productsController.list)
 router.get('/products/:id', productsController.show)
 router.post('/products', checkSchema(productSchemaValidator), productsController.create)
 router.delete('/products', productsController.remove)
+router.put('/products/:id/edit', checkSchema(productSchemaValidator), productsController.update)
 
 router.get('/categories', categoriesController.list)
 router.get('/categories/:id', categoriesController.show)

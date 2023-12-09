@@ -1,6 +1,47 @@
 <div class="container-list">
   <%- include('../_partials/aside') %>
+<<<<<<< HEAD
+  <div class="main-container-products">
+    <div>
+      <%- include('../_partials/header') %>
+    </div>
+    <main>
+      <h1>Produtos</h1>
+      <form>
+        <input
+          type="search"
+          value="<%= search %>"
+          name="search"
+          placeholder="Buscar produto..."
+        />
+      </form>
+
+      <% if (products.length === 0) { %>
+        <p>Nenhum produto cadastrado</p>
+      <% } %>
+
+      <ul>
+
+        <% for (let i = 0; i < products.length; i++) { %>
+          <li>
+            <%= products[i].name %>
+            <a href="/admin/products/<%= products[i].id%>/edit">editar</a>
+            <button id="<%= products[i].id %>" class="buttonDelete" >Deletar</button>
+          </li>
+        <% } %>
+      </ul>
+
+      <div id="pagination">
+        <% for (let i=0; i < lastpage; i++){ %>
+          <a class="page <%=  +page === i + 1  ? 'active' : '' %>" href="/admin/products?page=<%= i+1 %>">
+            <%= i + 1 %>
+          </a>
+          <%} %><br />
+      </div>
+
+=======
     <div class="main-container">
+>>>>>>> origin/main
       <div>
         <%- include('../_partials/header') %>
       </div>

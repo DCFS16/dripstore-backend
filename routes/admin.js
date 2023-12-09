@@ -11,6 +11,7 @@ router.get('/', (request, response) => {
 
 router.get('/products', productController.list)
 router.get('/products/new', productController.form)
+router.get('/products/:id/edit', productController.edit)
 
 router.get('/categories', categoryController.list)
 router.get('/categories/new', categoryController.form)
