@@ -1,6 +1,7 @@
 const { validationResult } = require('express-validator')
 const { Category } = require('../../models/Category')
 const { Product } = require('../../models/Product')
+const { Product_Category } = require('../../models/relations/Product_Category')
 
 const list = async (request, response) => {
   const categories = await Category.findAll()
@@ -41,6 +42,7 @@ const remove = async (request, response) => {
   const { id } = request.body
 
   const categories = await Category.findByPk(id)
+  await Product_Category.destroy({where:{categories_id: categories.id}})
   await categories.destroy()
 
   response.status(200)
