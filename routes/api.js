@@ -6,6 +6,7 @@ const categoriesController = require('../controllers/api/categories.controller')
 const authController = require('../controllers/api/auth.controller')
 const productSchemaValidator = require('../schemas/products')
 const categorySchemaValidtor = require('../schemas/categories')
+const userSchemaValidator = require('../schemas/users')
 
 const router = express.Router()
 
@@ -14,7 +15,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/users', usersController.list)
-router.post('/users', usersController.create)
+router.post('/users', checkSchema(userSchemaValidator), usersController.create)
 router.post('/auth', authController.login)
 
 router.get('/products', productsController.list)

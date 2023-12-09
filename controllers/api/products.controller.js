@@ -3,7 +3,9 @@ const { Product } = require('../../models/Product')
 const { ProductCategory } = require('../../models/relations/ProductCategory')
 
 const list = async (request, response) => {
-  const products = await Product.findAll()
+  const products = await Product.findAll({
+    include: 'Categories'
+  })
 
   response.json({ products })
 }

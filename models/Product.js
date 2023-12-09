@@ -18,6 +18,8 @@ const Product = sequelize.define('Product', {
     type: DataTypes.DECIMAL(8, 2),
     allowNull: false,
   },
+  discount: DataTypes.DECIMAL(8, 2),
+  image: DataTypes.TEXT,
 }, {
   timestamps: false,
 })
