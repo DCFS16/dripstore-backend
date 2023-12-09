@@ -1,17 +1,21 @@
 const { validationResult } = require('express-validator')
+const { Category } = require('../../models/Category')
 const { Product } = require('../../models/Product')
 const { ProductCategory } = require('../../models/relations/ProductCategory')
 
 const list = async (request, response) => {
-  const products = await Product.findAll()
+  const categories = await Category.findAll()
 
-  response.json({ products })
+  response.json({ categories })
 }
 
 const show = async (request, response) => {
-  const product = await Product.findByPk(request.params.id)
+  const category = await Category.findByPk(request.params.id, { include: Product })
 
-  response.json(product)
+  response.json({
+    ...category.toJSON(),
+    // products,
+  })
 }
 
 const create = async (request, response) => {
@@ -24,29 +28,25 @@ const create = async (request, response) => {
     })
   }
 
-  const { name, price, categories } = request.body
+  const { name } = request.body
 
-  console.log(categories)
+  const categories = Category.build({ name })
 
-  const product = Product.build({ name, price: +price })
-
-  await product.save()
-
-  await product.setCategories(categories)
+  await categories.save()
 
   response.status(201)
-  response.json({ product })
+  response.json({ categories })
 }
 
 const remove = async (request, response) => {
   const { id } = request.body
 
-  const product = await Product.findByPk(id)
-  await ProductCategory.destroy({ where: { products_id: product.id } })
-  await product.destroy()
+  const categories = await Category.findByPk(id)
+  await ProductCategory.destroy({ where: { categories_id: categories.id } })
+  await categories.destroy()
 
   response.status(200)
-  response.json({ product })
+  response.json({ categories })
 }
 
 module.exports = {
