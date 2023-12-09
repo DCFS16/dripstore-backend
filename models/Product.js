@@ -1,9 +1,8 @@
 const { DataTypes } = require('sequelize')
 const { sequelize } = require('../config/sequilize')
 const { Category } = require('./Category')
-/* eslint-disable */
-const { Product_Category } = require('./relations/Product_Category')
-/* eslint-enable */
+const { ProductCategory } = require('./relations/ProductCategory')
+
 const Product = sequelize.define('Product', {
   id: {
     allowNull: false,
@@ -22,10 +21,10 @@ const Product = sequelize.define('Product', {
 }, {
   timestamps: false,
 })
-/* eslint-disable */
+
 Product.belongsToMany(Category, {
   through: {
-    model: Product_Category,
+    model: ProductCategory,
   },
   foreignKey: 'products_id',
   constraints: true,
@@ -33,7 +32,7 @@ Product.belongsToMany(Category, {
 
 Category.belongsToMany(Product, {
   through: {
-    model: Product_Category,
+    model: ProductCategory,
   },
   foreignKey: 'categories_id',
   constraints: true,

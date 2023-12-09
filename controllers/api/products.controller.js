@@ -1,6 +1,6 @@
 const { validationResult } = require('express-validator')
 const { Product } = require('../../models/Product')
-const { Product_Category } = require('../../models/relations/Product_Category')
+const { ProductCategory } = require('../../models/relations/ProductCategory')
 
 const list = async (request, response) => {
   const products = await Product.findAll()
@@ -26,10 +26,9 @@ const create = async (request, response) => {
 
   const { name, price, categories } = request.body
 
-  console.log (categories)
+  console.log(categories)
 
-  const product = Product.build({ name, price: +price})
-
+  const product = Product.build({ name, price: +price })
 
   await product.save()
 
@@ -43,7 +42,7 @@ const remove = async (request, response) => {
   const { id } = request.body
 
   const product = await Product.findByPk(id)
-  await Product_Category.destroy({where:{products_id: product.id}})
+  await ProductCategory.destroy({ where: { products_id: product.id } })
   await product.destroy()
 
   response.status(200)
