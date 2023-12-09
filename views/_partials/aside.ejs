@@ -1,15 +1,11 @@
 <aside class="main-aside">
   <ul class="main-menu">
-    <li>
-      <a href="/admin/products/" id="product">
+    <li class="dropdown-item">
+      <a>
         Produtos
-        <img
-        src="/images/arrow-down.svg"
-        class=""
-        id="dropdown-arrow"
-        width="20" />
+        <img src="/images/arrow-down.svg" class="dropdown-item__arrow" width="20" />
       </a>
-      <ul class="sub-menu-visible" id="sub-list">
+      <ul class="dropdown-item__sub-menu">
         <li>
           <a href="/admin/products/">Listar</a>
         </li>
@@ -18,16 +14,39 @@
         </li>
       </ul>
     </li>
-    <li>
-      <a href="#">Usuários</a>
+    <li class="dropdown-item">
+      <a>
+        Usuários
+        <img src="/images/arrow-down.svg" class="dropdown-item__arrow" width="20" />
+      </a>
+      <ul class="dropdown-item__sub-menu">
+        <li>
+          <a href="/admin/users/">Listar</a>
+        </li>
+        <li>
+          <a href="/admin/users/new">Cadastrar</a>
+        </li>
+      </ul>
     </li>
     <li>
       <a href="#">Descontos</a>
     </li>
-    <li>
-      <a href="#">Categorias</a>
+    <li class="dropdown-item">
+      <a>
+        Categorias
+        <img src="/images/arrow-down.svg" class="dropdown-item__arrow" width="20" />
+      </a>
+      <ul class="dropdown-item__sub-menu">
+        <li>
+          <a href="/admin/categories/">Listar</a>
+        </li>
+        <li>
+          <a href="/admin/categories/new">Cadastrar</a>
+        </li>
+      </ul>
     </li>
   </ul>
 </aside>
 
-<script src="/javascripts/productList.js"></script>
+<link rel="stylesheet" href="/stylesheets/aside.css">
+<script src="/javascripts/aside.js"></script>

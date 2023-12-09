@@ -1,8 +1,8 @@
-const productlist = document.querySelector('#product')
+const userlist = document.querySelector('#user')
 const subList = document.querySelector('#sub-list')
 const arrow = document.querySelector('#dropdown-arrow')
 
-productlist.addEventListener('click', (e) => {
+userlist.addEventListener('click', (e) => {
   e.preventDefault()
   subList.classList.toggle('sub-menu-visible')
   arrow.classList.toggle('arrow-rotate')

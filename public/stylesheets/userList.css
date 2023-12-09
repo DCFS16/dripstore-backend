@@ -1,0 +1,17 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.container-user-list {
+  display: grid;
+  grid-template-columns: 13.75rem 1fr;
+  grid-template-rows: 100vh;
+}
+
+.main-container-user {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 3.75rem 1fr;
+}
